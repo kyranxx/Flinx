@@ -1,0 +1,98 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import type { Language } from "@/lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+interface HeaderProps {
+    lang: Language;
+    translations: any;
+}
+
+export default function Header({ lang, translations }: HeaderProps) {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { nav } = translations;
+
+    const navItems = [
+        { label: nav.features, href: '#features' },
+        { label: nav.testimonials, href: '#testimonials' },
+        { label: nav.faq, href: '#faq' },
+        { label: nav.contact, href: '#contact' },
+    ];
+
+    const scrollToSection = (href: string) => {
+        setMobileMenuOpen(false);
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    return (
+        <motion.header
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-white/5"
+        >
+            <div className="container mx-auto px-4 py-4 md:py-5">
+                <div className="flex items-center justify-between">
+                    {/* Logo - Bigger */}
+                    <Link href={lang === 'en' ? '/' : `/${lang}`} className="text-4xl md:text-5xl font-extrabold tracking-tighter font-logo uppercase italic">
+                        <span className="text-white">Flinx</span>
+                        <span className="text-[var(--accent-primary)]">.</span>
+                    </Link>
+
+                    {/* Right Side: Desktop Nav + Language Switcher + Mobile Menu */}
+                    <div className="flex items-center gap-6">
+                        {/* Desktop Navigation - Moved to Right */}
+                        <nav className="hidden md:flex items-center gap-8">
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.href}
+                                    onClick={() => scrollToSection(item.href)}
+                                    className="text-base font-medium text-gray-300 hover:text-white transition-colors"
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                        </nav>
+
+                        <LanguageSwitcher currentLang={lang} />
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="md:hidden p-2 text-white"
+                            aria-label="Toggle menu"
+                        >
+                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <motion.nav
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="md:hidden mt-4 pb-4 flex flex-col gap-4"
+                    >
+                        {navItems.map((item) => (
+                            <button
+                                key={item.href}
+                                onClick={() => scrollToSection(item.href)}
+                                className="text-left text-base font-medium text-gray-300 hover:text-white transition-colors"
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </motion.nav>
+                )}
+            </div>
+        </motion.header>
+    );
+}
