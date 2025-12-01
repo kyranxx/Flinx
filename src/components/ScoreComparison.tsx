@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-
 interface ScoreRingProps {
     score: number;
     label: string;
@@ -27,6 +25,8 @@ function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay, duration: 0.5 }}
             className="flex flex-col items-center gap-2"
+            role="img"
+            aria-label={`${label}: ${score}/100`}
         >
             <div className="relative" style={{ width, height: width }}>
                 <svg className="w-full h-full transform -rotate-90">
