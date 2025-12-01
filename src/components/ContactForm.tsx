@@ -16,6 +16,14 @@ export default function ContactForm({ translations }: ContactFormProps) {
     const [captchaValue, setCaptchaValue] = useState<string | null>(null);
     const recaptchaRef = useRef<ReCAPTCHA>(null);
 
+    const [isFormFocused, setIsFormFocused] = useState(false);
+
+    const handleFocus = () => {
+        if (!isFormFocused) {
+            setIsFormFocused(true);
+        }
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!captchaValue) return;
@@ -83,6 +91,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                             id="name"
                                             required
                                             type="text"
+                                            onFocus={handleFocus}
                                             placeholder={contact.form.namePlaceholder}
                                             className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
                                         />
@@ -93,6 +102,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                             id="website"
                                             required
                                             type="url"
+                                            onFocus={handleFocus}
                                             placeholder={contact.form.websitePlaceholder}
                                             className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
                                         />
@@ -105,6 +115,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                         id="email"
                                         required
                                         type="email"
+                                        onFocus={handleFocus}
                                         placeholder={contact.form.emailPlaceholder}
                                         className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
                                     />
@@ -115,19 +126,22 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     <textarea
                                         id="message"
                                         rows={4}
+                                        onFocus={handleFocus}
                                         placeholder={contact.form.messagePlaceholder}
                                         className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white resize-none text-base"
                                     />
                                 </div>
 
                                 {/* Google reCAPTCHA */}
-                                <div className="flex justify-center py-2">
-                                    <ReCAPTCHA
-                                        ref={recaptchaRef}
-                                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with your actual key
-                                        onChange={handleCaptchaChange}
-                                        theme="dark"
-                                    />
+                                <div className="flex justify-center py-2 min-h-[78px]">
+                                    {isFormFocused && (
+                                        <ReCAPTCHA
+                                            ref={recaptchaRef}
+                                            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with your actual key
+                                            onChange={handleCaptchaChange}
+                                            theme="dark"
+                                        />
+                                    )}
                                 </div>
 
                                 {/* Powered by Google Badge */}
