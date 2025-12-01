@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import Image from "next/image";
 import ScoreComparison from "./ScoreComparison";
@@ -39,22 +38,16 @@ export default function Hero({ translations }: HeroProps) {
                     <span className="gradient-text">{hero.titleGradient}</span>
                 </h1>
 
-                <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-base md:text-xl text-gray-300 max-w-2xl mb-8 md:mb-12 px-4"
+                <p
+                    className="text-base md:text-xl text-gray-300 max-w-2xl mb-8 md:mb-12 px-4 opacity-0 animate-fade-in-up delay-200"
                 >
                     {hero.description}
-                </motion.p>
+                </p>
 
                 <ScoreComparison translations={translations} />
 
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-8 md:mt-12 flex flex-col items-center gap-6"
+                <div
+                    className="mt-8 md:mt-12 flex flex-col items-center gap-6 opacity-0 animate-fade-in-up delay-400"
                 >
                     <button
                         onClick={scrollToContact}
@@ -78,7 +71,7 @@ export default function Hero({ translations }: HeroProps) {
                         </svg>
                         <span className="text-sm font-semibold text-white">PageSpeed Insights</span>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
