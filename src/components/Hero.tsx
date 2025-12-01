@@ -25,15 +25,12 @@ export default function Hero({ translations }: HeroProps) {
             </div>
 
             <div className="container mx-auto flex flex-col items-center text-center z-10">
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6 }}
+                <div
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 md:mb-8"
                 >
                     <Zap size={16} className="text-[var(--success)]" />
                     <span className="text-xs md:text-sm font-medium text-gray-300">{hero.badge}</span>
-                </motion.div>
+                </div>
 
                 <h1
                     className="max-w-4xl mb-4 md:mb-6 text-4xl md:text-6xl"

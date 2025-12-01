@@ -1,13 +1,14 @@
+import dynamic from 'next/dynamic';
 import { getTranslation } from "@/lib/i18n";
 import Hero from "@/components/Hero";
-import ScoreComparison from "@/components/ScoreComparison";
-import Process from "@/components/Process";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const Process = dynamic(() => import("@/components/Process"));
+const Services = dynamic(() => import("@/components/Services"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const ContactForm = dynamic(() => import("@/components/ContactForm"));
 
 export default function Page() {
     const translations = getTranslation('en');
