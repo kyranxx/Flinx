@@ -41,7 +41,7 @@ export default function Footer({ lang, translations }: FooterProps) {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-base md:text-lg font-bold mb-4 text-white">Quick Links</h3>
+                        <h3 className="text-base md:text-lg font-bold mb-4 text-white">Quick Links.</h3>
                         <nav className="flex flex-col gap-3">
                             {navItems.map((item) => (
                                 <button
