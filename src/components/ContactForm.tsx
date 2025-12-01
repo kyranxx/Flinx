@@ -131,8 +131,8 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                 </div>
 
                                 {/* Powered by Google Badge */}
-                                <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
-                                    <Image src="/Google_Favicon_2025.png" alt="Google" width={16} height={16} priority />
+                                <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
+                                    <Image src="/Google_Favicon_2025.png" alt="Google" width={16} height={16} priority sizes="16px" />
                                     <span>{contact.protectedByRecaptcha}</span>
                                 </div>
 

@@ -36,7 +36,7 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                             <p className="text-sm md:text-base text-gray-300 mb-4 italic">"{item.text}"</p>
                             <div className="border-t border-white/10 pt-4">
                                 <p className="font-bold text-sm md:text-base">{item.name}</p>
-                                <p className="text-xs md:text-sm text-gray-500">{item.role}</p>
+                                <p className="text-xs md:text-sm text-gray-400">{item.role}</p>
                             </div>
                         </motion.div>
                     ))}
