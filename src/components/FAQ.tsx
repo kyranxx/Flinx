@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface FAQProps {
     translations: any;
@@ -8,6 +8,7 @@ interface FAQProps {
 
 export default function FAQ({ translations }: FAQProps) {
     const { faq } = translations;
+    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     return (
         <section id="faq" className="py-12 md:py-20 bg-[var(--bg-secondary)] px-4">
@@ -16,19 +17,15 @@ export default function FAQ({ translations }: FAQProps) {
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">{faq.title}</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 stagger-children">
                     {faq.items.map((item: any, index: number) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
                             className="card"
                         >
                             <h3 className="text-lg md:text-xl font-bold text-white mb-3">{item.question}</h3>
                             <p className="text-base text-gray-300 leading-relaxed">{item.answer}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -73,10 +72,8 @@ export default function Header({ lang, translations }: HeaderProps) {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <motion.nav
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="md:hidden mt-4 pb-4 flex flex-col gap-4"
+                    <nav
+                        className="md:hidden mt-4 pb-4 flex flex-col gap-4 animate-fade-in-up"
                     >
                         {navItems.map((item) => (
                             <button
@@ -87,7 +84,7 @@ export default function Header({ lang, translations }: HeaderProps) {
                                 {item.label}
                             </button>
                         ))}
-                    </motion.nav>
+                    </nav>
                 )}
             </div>
         </header>

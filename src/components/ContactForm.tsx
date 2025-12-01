@@ -51,23 +51,16 @@ export default function ContactForm({ translations }: ContactFormProps) {
 
                     <div className="relative card border-2 border-[var(--accent-primary)]/30 bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)] shadow-2xl shadow-[var(--accent-primary)]/20">
                         <div className="text-center mb-8 md:mb-10">
-                            <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                            <h2
                                 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-white via-[var(--accent-primary)] to-white bg-clip-text text-transparent"
                             >
                                 {contact.title}
-                            </motion.h2>
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
+                            </h2>
+                            <p
                                 className="text-base md:text-lg text-gray-300"
                             >
                                 {contact.subtitle}
-                            </motion.p>
+                            </p>
                         </div>
 
                         {formState === 'success' ? (

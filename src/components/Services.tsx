@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Gauge, Image as ImageIcon, FileCode, Smartphone, Zap, Server, Layers, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface ServicesProps {
     translations: any;
@@ -9,6 +9,7 @@ interface ServicesProps {
 
 export default function Services({ translations }: ServicesProps) {
     const { services } = translations;
+    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     const icons = [
         Gauge,          // Core Web Vitals
@@ -31,16 +32,12 @@ export default function Services({ translations }: ServicesProps) {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 stagger-children">
                     {services.items.map((service: any, index: number) => {
                         const Icon = icons[index];
                         return (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
                                 className="card hover:bg-white/5 transition-colors"
                             >
                                 <div className="mb-4 text-[var(--accent-primary)]">
@@ -48,7 +45,7 @@ export default function Services({ translations }: ServicesProps) {
                                 </div>
                                 <h3 className="text-lg md:text-xl font-bold mb-2">{service.title}</h3>
                                 <p className="text-xs md:text-sm text-gray-300">{service.description}</p>
-                            </motion.div>
+                            </div>
                         );
                     })}
                 </div>

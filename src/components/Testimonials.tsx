@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface TestimonialsProps {
     translations: any;
@@ -9,6 +9,7 @@ interface TestimonialsProps {
 
 export default function Testimonials({ translations }: TestimonialsProps) {
     const { testimonials } = translations;
+    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     return (
         <section id="testimonials" className="py-12 md:py-20 px-4">
@@ -18,14 +19,10 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                     <p className="text-base md:text-lg text-gray-400">{testimonials.subtitle}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 stagger-children">
                     {testimonials.items.map((item: any, index: number) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.15 }}
-                            viewport={{ once: true }}
                             className="card bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)]"
                         >
                             <div className="flex gap-1 mb-4">
@@ -38,7 +35,7 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                                 <p className="font-bold text-sm md:text-base">{item.name}</p>
                                 <p className="text-xs md:text-sm text-gray-300">{item.role}</p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
