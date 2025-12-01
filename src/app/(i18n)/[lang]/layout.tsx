@@ -33,8 +33,36 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     return {
         title: "Flinx - 100% PageSpeed Optimization",
         description: translations.hero.description,
+        keywords: ["web performance", "PageSpeed", "optimization", "fast website", "SEO"],
+        authors: [{ name: "Flinx" }],
+        creator: "Flinx",
+        publisher: "Flinx",
         icons: {
             icon: "/favicon.ico",
+        },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
+        openGraph: {
+            type: "website",
+            locale: lang === 'en' ? 'en_US' : `${lang}_${lang.toUpperCase()}`,
+            url: `https://flinx.vercel.app/${lang}`,
+            title: "Flinx - 100% PageSpeed Optimization",
+            description: translations.hero.description,
+            siteName: "Flinx",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "Flinx - 100% PageSpeed Optimization",
+            description: translations.hero.description,
         },
     };
 }

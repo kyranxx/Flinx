@@ -17,6 +17,34 @@ const exo2 = Exo_2({
 export const metadata: Metadata = {
     title: "Flinx - 100% PageSpeed Optimization",
     description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
+    keywords: ["web performance", "PageSpeed", "optimization", "fast website", "SEO"],
+    authors: [{ name: "Flinx" }],
+    creator: "Flinx",
+    publisher: "Flinx",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://flinx.vercel.app",
+        title: "Flinx - 100% PageSpeed Optimization",
+        description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
+        siteName: "Flinx",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Flinx - 100% PageSpeed Optimization",
+        description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
+    },
 };
 
 export const viewport = {

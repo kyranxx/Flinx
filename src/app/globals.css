@@ -83,11 +83,13 @@ p {
   border-radius: 16px;
   padding: 2rem;
   transition: transform 0.3s ease;
+  contain: layout style paint;
 }
 
 .card:hover {
   transform: translateY(-5px);
   border-color: var(--accent-primary);
+  will-change: transform;
 }
 
 /* Animations */

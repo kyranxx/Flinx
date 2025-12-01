@@ -59,13 +59,17 @@ export default function Hero({ translations }: HeroProps) {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mt-8 md:mt-12 flex flex-col items-center gap-6"
                 >
-                    <button onClick={scrollToContact} className="btn btn-primary text-base md:text-lg px-8 md:px-10 py-4 md:py-5">
+                    <button
+                        onClick={scrollToContact}
+                        className="btn btn-primary text-base md:text-lg px-8 md:px-10 py-4 md:py-5"
+                        aria-label="Get started with Flinx optimization"
+                    >
                         {hero.cta}
                     </button>
 
                     {/* PageSpeed Insights Badge */}
                     <div className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full">
-                        <Image src="/Google_Favicon_2025.png" alt="Google" width={20} height={20} />
+                        <Image src="/Google_Favicon_2025.png" alt="Google" width={20} height={20} priority />
                         <span className="text-sm text-gray-400">Optimized for</span>
                         <svg viewBox="0 0 24 24" className="w-5 h-5" fill="#4285F4">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
