@@ -36,7 +36,7 @@ export default function Footer({ lang, translations }: FooterProps) {
                             <span className="text-white">Flinx</span>
                             <span className="text-[var(--accent-primary)]">.</span>
                         </Link>
-                        <p className="text-base text-gray-400 mt-4">{footer.tagline}</p>
+                        <p className="text-base text-gray-300 mt-4">{footer.tagline}</p>
                     </div>
 
                     {/* Quick Links */}
@@ -47,7 +47,7 @@ export default function Footer({ lang, translations }: FooterProps) {
                                 <button
                                     key={item.href}
                                     onClick={() => scrollToSection(item.href)}
-                                    className="text-left text-sm text-gray-400 hover:text-white transition-colors"
+                                    className="text-left text-sm text-gray-300 hover:text-white transition-colors"
                                 >
                                     {item.label}
                                 </button>
@@ -58,7 +58,7 @@ export default function Footer({ lang, translations }: FooterProps) {
                     {/* Contact Info */}
                     <div>
                         <h3 className="text-base md:text-lg font-bold mb-4 text-white">Contact</h3>
-                        <div className="flex flex-col gap-2 text-sm text-gray-400">
+                        <div className="flex flex-col gap-2 text-sm text-gray-300">
                             <p>Email: hello@flinx.speed</p>
                             <p>Support: support@flinx.speed</p>
                         </div>
@@ -67,10 +67,10 @@ export default function Footer({ lang, translations }: FooterProps) {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                    <p className="text-xs md:text-sm text-gray-400">
+                    <p className="text-xs md:text-sm text-gray-300">
                         &copy; {currentYear} Flinx. {footer.rights}
                     </p>
-                    <p className="text-xs md:text-sm text-gray-400">{footer.madeWith}</p>
+                    <p className="text-xs md:text-sm text-gray-300">{footer.madeWith}</p>
                 </div>
             </div>
         </footer>

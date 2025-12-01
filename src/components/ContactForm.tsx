@@ -72,7 +72,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     <CheckCircle size={48} className="text-[var(--success)]" />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold mb-2">{contact.success.title}</h3>
-                                <p className="text-base md:text-lg text-gray-400">{contact.success.subtitle}</p>
+                                <p className="text-base md:text-lg text-gray-300">{contact.success.subtitle}</p>
                             </motion.div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">

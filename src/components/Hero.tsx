@@ -46,7 +46,7 @@ export default function Hero({ translations }: HeroProps) {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-base md:text-xl text-gray-400 max-w-2xl mb-8 md:mb-12 px-4"
+                    className="text-base md:text-xl text-gray-300 max-w-2xl mb-8 md:mb-12 px-4"
                 >
                     {hero.description}
                 </motion.p>

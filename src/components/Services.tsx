@@ -26,7 +26,7 @@ export default function Services({ translations }: ServicesProps) {
             <div className="container mx-auto max-w-5xl">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">{services.title}</h2>
-                    <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                    <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto px-4">
                         {services.subtitle}
                     </p>
                 </div>
@@ -47,7 +47,7 @@ export default function Services({ translations }: ServicesProps) {
                                     <Icon size={28} />
                                 </div>
                                 <h3 className="text-lg md:text-xl font-bold mb-2">{service.title}</h3>
-                                <p className="text-xs md:text-sm text-gray-400">{service.description}</p>
+                                <p className="text-xs md:text-sm text-gray-300">{service.description}</p>
                             </motion.div>
                         );
                     })}

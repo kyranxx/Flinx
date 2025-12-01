@@ -42,7 +42,7 @@ export default function Process({ translations }: ProcessProps) {
                     className="text-center mb-12"
                 >
                     <h2 className="text-2xl md:text-4xl font-bold mb-3">{translations.process.title}</h2>
-                    <p className="text-base md:text-lg text-gray-400">{translations.process.subtitle}</p>
+                    <p className="text-base md:text-lg text-gray-300">{translations.process.subtitle}</p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -80,7 +80,7 @@ export default function Process({ translations }: ProcessProps) {
                                     </div>
 
                                     <h3 className="text-lg md:text-xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-sm text-gray-400">{step.description}</p>
+                                    <p className="text-sm text-gray-300">{step.description}</p>
                                 </div>
                             </motion.div>
                         );

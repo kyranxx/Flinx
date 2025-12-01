@@ -27,7 +27,7 @@ export default function FAQ({ translations }: FAQProps) {
                             className="card"
                         >
                             <h3 className="text-lg md:text-xl font-bold text-white mb-3">{item.question}</h3>
-                            <p className="text-base text-gray-400 leading-relaxed">{item.answer}</p>
+                            <p className="text-base text-gray-300 leading-relaxed">{item.answer}</p>
                         </motion.div>
                     ))}
                 </div>
