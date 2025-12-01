@@ -67,10 +67,10 @@ export default function Footer({ lang, translations }: FooterProps) {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                    <p className="text-xs md:text-sm text-gray-600">
+                    <p className="text-xs md:text-sm text-gray-400">
                         &copy; {currentYear} Flinx. {footer.rights}
                     </p>
-                    <p className="text-xs md:text-sm text-gray-600">{footer.madeWith}</p>
+                    <p className="text-xs md:text-sm text-gray-400">{footer.madeWith}</p>
                 </div>
             </div>
         </footer>

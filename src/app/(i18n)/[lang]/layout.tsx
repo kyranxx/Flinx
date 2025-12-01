@@ -23,6 +23,7 @@ interface LayoutProps {
 export const viewport = {
     width: "device-width",
     initialScale: 1,
+    themeColor: "#050505",
 };
 
 export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {

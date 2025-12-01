@@ -35,15 +35,12 @@ export default function Hero({ translations }: HeroProps) {
                     <span className="text-xs md:text-sm font-medium text-gray-300">{hero.badge}</span>
                 </motion.div>
 
-                <motion.h1
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                <h1
                     className="max-w-4xl mb-4 md:mb-6 text-4xl md:text-6xl"
                 >
                     {hero.title} <br />
                     <span className="gradient-text">{hero.titleGradient}</span>
-                </motion.h1>
+                </h1>
 
                 <motion.p
                     initial={{ y: 20, opacity: 0 }}

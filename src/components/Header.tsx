@@ -32,10 +32,7 @@ export default function Header({ lang, translations }: HeaderProps) {
     };
 
     return (
-        <motion.header
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
+        <header
             className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-white/5"
         >
             <div className="container mx-auto px-4 py-4 md:py-5">
@@ -93,6 +90,6 @@ export default function Header({ lang, translations }: HeaderProps) {
                     </motion.nav>
                 )}
             </div>
-        </motion.header>
+        </header>
     );
 }

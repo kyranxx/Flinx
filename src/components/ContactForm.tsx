@@ -78,8 +78,9 @@ export default function ContactForm({ translations }: ContactFormProps) {
                             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-sm md:text-base font-medium text-gray-300">{contact.form.name}</label>
+                                        <label htmlFor="name" className="text-sm md:text-base font-medium text-gray-300">{contact.form.name}</label>
                                         <input
+                                            id="name"
                                             required
                                             type="text"
                                             placeholder={contact.form.namePlaceholder}
@@ -87,8 +88,9 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm md:text-base font-medium text-gray-300">{contact.form.website}</label>
+                                        <label htmlFor="website" className="text-sm md:text-base font-medium text-gray-300">{contact.form.website}</label>
                                         <input
+                                            id="website"
                                             required
                                             type="url"
                                             placeholder={contact.form.websitePlaceholder}
@@ -98,8 +100,9 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm md:text-base font-medium text-gray-300">{contact.form.email}</label>
+                                    <label htmlFor="email" className="text-sm md:text-base font-medium text-gray-300">{contact.form.email}</label>
                                     <input
+                                        id="email"
                                         required
                                         type="email"
                                         placeholder={contact.form.emailPlaceholder}
@@ -108,8 +111,9 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm md:text-base font-medium text-gray-300">{contact.form.message}</label>
+                                    <label htmlFor="message" className="text-sm md:text-base font-medium text-gray-300">{contact.form.message}</label>
                                     <textarea
+                                        id="message"
                                         rows={4}
                                         placeholder={contact.form.messagePlaceholder}
                                         className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white resize-none text-base"
