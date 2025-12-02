@@ -1,7 +1,6 @@
 "use client";
 
 import { Gauge, Image as ImageIcon, FileCode, Smartphone, Zap, Server, Layers, Shield } from "lucide-react";
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface ServicesProps {
     translations: any;
@@ -9,7 +8,6 @@ interface ServicesProps {
 
 export default function Services({ translations }: ServicesProps) {
     const { services } = translations;
-    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     const icons = [
         Gauge,          // Core Web Vitals
@@ -32,7 +30,7 @@ export default function Services({ translations }: ServicesProps) {
                     </p>
                 </div>
 
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 stagger-children">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {services.items.map((service: any, index: number) => {
                         const Icon = icons[index];
                         return (

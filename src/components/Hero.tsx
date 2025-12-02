@@ -39,7 +39,7 @@ export default function Hero({ translations }: HeroProps) {
                 </h1>
 
                 <p
-                    className="text-base md:text-xl text-gray-300 max-w-2xl mb-8 md:mb-12 px-4 opacity-0 animate-fade-in-up delay-200"
+                    className="text-base md:text-xl text-gray-300 max-w-2xl mb-8 md:mb-12 px-4"
                 >
                     {hero.description}
                 </p>
@@ -47,7 +47,7 @@ export default function Hero({ translations }: HeroProps) {
                 <ScoreComparison translations={translations} />
 
                 <div
-                    className="mt-8 md:mt-12 flex flex-col items-center gap-6 opacity-0 animate-fade-in-up delay-400"
+                    className="mt-8 md:mt-12 flex flex-col items-center gap-6"
                 >
                     <button
                         onClick={scrollToContact}

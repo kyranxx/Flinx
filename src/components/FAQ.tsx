@@ -1,14 +1,11 @@
 "use client";
 
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
-
 interface FAQProps {
     translations: any;
 }
 
 export default function FAQ({ translations }: FAQProps) {
     const { faq } = translations;
-    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     return (
         <section id="faq" className="py-12 md:py-20 bg-[var(--bg-secondary)] px-4">
@@ -17,7 +14,7 @@ export default function FAQ({ translations }: FAQProps) {
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">{faq.title}</h2>
                 </div>
 
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 stagger-children">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {faq.items.map((item: any, index: number) => (
                         <div
                             key={index}

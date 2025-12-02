@@ -1,15 +1,12 @@
 "use client";
 
 import { FileText, Calculator, CheckCircle, Trophy } from "lucide-react";
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface ProcessProps {
     translations: any;
 }
 
 export default function Process({ translations }: ProcessProps) {
-    const titleRef = useScrollAnimation<HTMLDivElement>();
-    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     const stepsData = [
         {
@@ -39,14 +36,13 @@ export default function Process({ translations }: ProcessProps) {
         <section className="py-12 md:py-16 px-4 bg-[var(--bg-secondary)]">
             <div className="container mx-auto max-w-6xl">
                 <div
-                    ref={titleRef}
-                    className="text-center mb-12 fade-in-up"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-2xl md:text-4xl font-bold mb-3">{translations.process.title}</h2>
                     <p className="text-base md:text-lg text-gray-300">{translations.process.subtitle}</p>
                 </div>
 
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 stagger-children">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {steps.map((step: any, index: number) => {
                         const Icon = step.icon;
                         return (

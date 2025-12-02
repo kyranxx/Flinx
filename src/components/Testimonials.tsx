@@ -1,7 +1,6 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 interface TestimonialsProps {
     translations: any;
@@ -9,7 +8,6 @@ interface TestimonialsProps {
 
 export default function Testimonials({ translations }: TestimonialsProps) {
     const { testimonials } = translations;
-    const gridRef = useScrollAnimation<HTMLDivElement>();
 
     return (
         <section id="testimonials" className="py-12 md:py-20 px-4">
@@ -19,7 +17,7 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                     <p className="text-base md:text-lg text-gray-400">{testimonials.subtitle}</p>
                 </div>
 
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 stagger-children">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {testimonials.items.map((item: any, index: number) => (
                         <div
                             key={index}

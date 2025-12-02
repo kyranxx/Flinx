@@ -64,7 +64,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
 
                         {formState === 'success' ? (
                             <div
-                                className="flex flex-col items-center justify-center py-12 text-center scale-in visible"
+                                className="flex flex-col items-center justify-center py-12 text-center"
                             >
                                 <div className="w-20 md:w-24 h-20 md:h-24 bg-[var(--success)]/20 rounded-full flex items-center justify-center mb-6">
                                     <CheckCircle size={48} className="text-[var(--success)]" />

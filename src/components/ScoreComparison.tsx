@@ -1,29 +1,25 @@
 "use client";
 
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
-
 interface ScoreRingProps {
     score: number;
     label: string;
-    delay?: number;
     size?: number;
 }
 
-function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
+function ScoreRing({ score, label, size = 120 }: ScoreRingProps) {
     let color = "#0cce6b"; // Green (90-100)
     if (score < 50) color = "#ff4e42"; // Red (0-49)
     else if (score < 90) color = "#ffa400"; // Orange (50-89)
 
     const width = size;
-    const radius = (size / 2) - 4; // Adjust radius based on size, keeping stroke width in mind
-    const strokeWidth = size / 15; // Scale stroke width
+    const radius = (size / 2) - 4;
+    const strokeWidth = size / 15;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (score / 100) * circumference;
 
     return (
         <div
-            className="flex flex-col items-center gap-2 fade-in-up"
-            style={{ animationDelay: `${delay}s` }}
+            className="flex flex-col items-center gap-2"
             role="img"
             aria-label={`${label}: ${score}/100`}
         >
@@ -45,21 +41,16 @@ function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
                         strokeWidth={strokeWidth}
                         fill="none"
                         strokeLinecap="round"
-                        className="animate-ring"
-                        style={{
-                            '--circumference': circumference,
-                            '--offset': offset,
-                            animationDelay: `${delay + 0.3}s`
-                        } as React.CSSProperties}
+                        strokeDasharray={circumference}
+                        strokeDashoffset={offset}
                     />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                     <span
-                        className="font-bold fade-in-up"
+                        className="font-bold"
                         style={{
                             color,
-                            fontSize: size * 0.25,
-                            animationDelay: `${delay + 0.5}s`
+                            fontSize: size * 0.25
                         }}
                     >
                         {score}
@@ -77,7 +68,6 @@ interface ScoreComparisonProps {
 
 export default function ScoreComparison({ translations }: ScoreComparisonProps) {
     const { scoreComparison } = translations;
-    const containerRef = useScrollAnimation<HTMLDivElement>();
 
     const categories = [
         { label: scoreComparison.categories.performance, before: 34, after: 100 },
@@ -87,7 +77,7 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
     ];
 
     return (
-        <div ref={containerRef} className="py-8 w-full max-w-7xl mx-auto px-4">
+        <div className="py-8 w-full max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 {/* Before Scores */}
                 <div className="flex items-center gap-4">
@@ -97,7 +87,6 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
                             key={`before-${cat.label}`}
                             score={cat.before}
                             label={cat.label}
-                            delay={index * 0.1}
                             size={60}
                         />
                     ))}
@@ -118,7 +107,6 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
                             key={`after-${cat.label}`}
                             score={cat.after}
                             label={cat.label}
-                            delay={1 + index * 0.1}
                             size={60}
                         />
                     ))}
