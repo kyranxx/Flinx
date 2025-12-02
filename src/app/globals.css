@@ -221,6 +221,22 @@ p {
   transform: scale(1);
 }
 
+/* Ring Animation */
+@keyframes fillRing {
+  from {
+    stroke-dashoffset: var(--circumference);
+  }
+  to {
+    stroke-dashoffset: var(--offset);
+  }
+}
+
+.animate-ring {
+  stroke-dasharray: var(--circumference);
+  stroke-dashoffset: var(--circumference);
+  animation: fillRing 1s ease-out forwards;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   h1 {

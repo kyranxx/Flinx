@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/lib/useScrollAnimation";
+
 interface ScoreRingProps {
     score: number;
     label: string;
@@ -20,11 +21,9 @@ function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
     const offset = circumference - (score / 100) * circumference;
 
     return (
-        <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay, duration: 0.5 }}
-            className="flex flex-col items-center gap-2"
+        <div
+            className="flex flex-col items-center gap-2 fade-in-up"
+            style={{ animationDelay: `${delay}s` }}
             role="img"
             aria-label={`${label}: ${score}/100`}
         >
@@ -38,7 +37,7 @@ function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
                         strokeWidth={strokeWidth}
                         fill="none"
                     />
-                    <motion.circle
+                    <circle
                         cx={width / 2}
                         cy={width / 2}
                         r={radius}
@@ -46,26 +45,29 @@ function ScoreRing({ score, label, delay = 0, size = 120 }: ScoreRingProps) {
                         strokeWidth={strokeWidth}
                         fill="none"
                         strokeLinecap="round"
-                        strokeDasharray={circumference}
-                        initial={{ strokeDashoffset: circumference }}
-                        animate={{ strokeDashoffset: offset }}
-                        transition={{ delay: delay + 0.3, duration: 1, ease: "easeOut" }}
+                        className="animate-ring"
+                        style={{
+                            '--circumference': circumference,
+                            '--offset': offset,
+                            animationDelay: `${delay + 0.3}s`
+                        } as React.CSSProperties}
                     />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span
-                        className="font-bold"
-                        style={{ color, fontSize: size * 0.25 }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: delay + 0.5 }}
+                    <span
+                        className="font-bold fade-in-up"
+                        style={{
+                            color,
+                            fontSize: size * 0.25,
+                            animationDelay: `${delay + 0.5}s`
+                        }}
                     >
                         {score}
-                    </motion.span>
+                    </span>
                 </div>
             </div>
             <span className="text-[10px] md:text-xs font-semibold text-gray-300 text-center max-w-[60px] leading-tight">{label}</span>
-        </motion.div>
+        </div>
     );
 }
 
@@ -75,6 +77,8 @@ interface ScoreComparisonProps {
 
 export default function ScoreComparison({ translations }: ScoreComparisonProps) {
     const { scoreComparison } = translations;
+    const containerRef = useScrollAnimation<HTMLDivElement>();
+
     const categories = [
         { label: scoreComparison.categories.performance, before: 34, after: 100 },
         { label: scoreComparison.categories.accessibility, before: 67, after: 100 },
@@ -83,7 +87,7 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
     ];
 
     return (
-        <div className="py-8 w-full max-w-7xl mx-auto px-4">
+        <div ref={containerRef} className="py-8 w-full max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 {/* Before Scores */}
                 <div className="flex items-center gap-4">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import ReCAPTCHA from "react-google-recaptcha";
 import Image from "next/image";
@@ -64,17 +63,15 @@ export default function ContactForm({ translations }: ContactFormProps) {
                         </div>
 
                         {formState === 'success' ? (
-                            <motion.div
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                className="flex flex-col items-center justify-center py-12 text-center"
+                            <div
+                                className="flex flex-col items-center justify-center py-12 text-center scale-in visible"
                             >
                                 <div className="w-20 md:w-24 h-20 md:h-24 bg-[var(--success)]/20 rounded-full flex items-center justify-center mb-6">
                                     <CheckCircle size={48} className="text-[var(--success)]" />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold mb-2">{contact.success.title}</h3>
                                 <p className="text-base md:text-lg text-gray-300">{contact.success.subtitle}</p>
-                            </motion.div>
+                            </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
