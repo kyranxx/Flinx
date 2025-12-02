@@ -1,8 +1,6 @@
-"use client";
-
 import { Zap } from "lucide-react";
-import Image from "next/image";
 import ScoreComparison from "./ScoreComparison";
+import HeroCta from "./HeroCta";
 
 interface HeroProps {
     translations: any;
@@ -10,10 +8,6 @@ interface HeroProps {
 
 export default function Hero({ translations }: HeroProps) {
     const { hero } = translations;
-
-    const scrollToContact = () => {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    };
 
     return (
         <section className="min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-12 px-4 relative overflow-hidden">
@@ -49,13 +43,7 @@ export default function Hero({ translations }: HeroProps) {
                 <div
                     className="mt-8 md:mt-12 flex flex-col items-center gap-6"
                 >
-                    <button
-                        onClick={scrollToContact}
-                        className="btn btn-primary text-base md:text-lg px-8 md:px-10 py-4 md:py-5"
-                        aria-label="Get started with Flinx optimization"
-                    >
-                        {hero.cta}
-                    </button>
+                    <HeroCta text={hero.cta} />
 
                     {/* PageSpeed Insights Badge */}
                     <div className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full">
