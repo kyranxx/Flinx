@@ -10,8 +10,8 @@ const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const ContactForm = dynamic(() => import("@/components/ContactForm"));
 
-export default function Page() {
-    const translations = getTranslation('en');
+export default async function Page() {
+    const translations = await getTranslation('en');
 
     return (
         <main className="min-h-screen flex flex-col">

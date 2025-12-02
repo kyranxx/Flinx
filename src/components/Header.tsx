@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import type { Language } from "@/lib/i18n";
+import type { Language } from "@/lib/languages";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 interface HeaderProps {

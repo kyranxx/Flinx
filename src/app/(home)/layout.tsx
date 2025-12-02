@@ -61,11 +61,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                {/* Preconnect to Google Fonts for faster loading */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                {/* DNS prefetch as fallback */}
-                <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
             </head>
             <body className={`${outfit.variable} ${exo2.variable} font-sans`}>
                 {children}

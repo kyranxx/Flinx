@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { Outfit, Exo_2 } from "next/font/google";
 import "../../globals.css";
-import { getTranslation, type Language } from "@/lib/i18n";
+import { getTranslation } from "@/lib/i18n";
+import { type Language } from "@/lib/languages";
 
 const outfit = Outfit({
     subsets: ["latin"],
     variable: "--font-outfit",
-    display: 'swap',
+    display: 'optional',
 });
 
 const exo2 = Exo_2({
     subsets: ["latin"],
     variable: "--font-exo2",
-    display: 'swap',
+    display: 'optional',
 });
 
 interface LayoutProps {
@@ -28,7 +29,7 @@ export const viewport = {
 
 export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
     const { lang } = await params;
-    const translations = getTranslation(lang as Language);
+    const translations = await getTranslation(lang as Language);
 
     return {
         title: "Flinx - 100% PageSpeed Optimization",

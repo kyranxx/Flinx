@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { languages, type Language } from "@/lib/i18n";
+import { languages, type Language } from "@/lib/languages";
 import "flag-icons/css/flag-icons.min.css";
 
 interface LanguageSwitcherProps {

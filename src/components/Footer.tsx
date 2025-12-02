@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { Language } from "@/lib/i18n";
+import type { Language } from "@/lib/languages";
 
 interface FooterProps {
     lang: Language;
