@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  // Target modern browsers only to remove legacy polyfills
+  transpilePackages: [],
 };
 
 export default nextConfig;
