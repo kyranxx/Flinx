@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Expert PageSpeed Optimization Service (100% Score)',
+        description: 'We fix slow website loading and optimize Core Web Vitals. Get a 100% Google PageSpeed score and boost your SEO rankings today.',
+        keywords: 'PageSpeed Optimization, Fix slow website loading, Core Web Vitals',
+    },
     nav: {
         features: 'Features',
         testimonials: 'Testimonials',
@@ -31,7 +36,7 @@ export default {
         badge: 'Stop losing customers to slow loading times',
         title: 'Make Your Website',
         titleGradient: 'Unfairly Fast',
-        description: 'We optimize your code, images, and server settings to hit that sweet 100% on PageSpeed Insights. Better SEO, happier users, more sales.',
+        description: 'Premium PageSpeed Optimization Service. Stop losing revenue to slow loading times.',
         cta: 'Get Your Speed Boost',
     },
     scoreComparison: {

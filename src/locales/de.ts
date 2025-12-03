@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - PageSpeed Optimieren & Ladezeit Verbessern (100%)',
+        description: 'Wir übernehmen Ihre PageSpeed Optimierung. Garantierte 100/100 Punkte in Google PageSpeed Insights. Jetzt Ladezeit optimieren.',
+        keywords: 'PageSpeed optimieren, Ladezeit verbessern, WordPress schneller machen',
+    },
     nav: {
         features: 'Funktionen',
         testimonials: 'Referenzen',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Verlieren Sie keine Kunden mehr durch langsame Ladezeiten',
-        title: 'Machen Sie Ihre Website',
-        titleGradient: 'Unfassbar Schnell',
-        description: 'Wir optimieren Ihren Code, Bilder und Servereinstellungen, um 100% bei PageSpeed Insights zu erreichen. Besseres SEO, zufriedenere Nutzer, mehr Verkäufe.',
+        title: 'Professionelle',
+        titleGradient: 'PageSpeed Optimierung',
+        description: 'Schluss mit langsamen Ladezeiten. Wir bringen Ihre Core Web Vitals auf 100 Punkte.',
         cta: 'Geschwindigkeits-Boost erhalten',
     },
     scoreComparison: {

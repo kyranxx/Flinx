@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Zvyšení Rychlosti Webu & PageSpeed (100%)',
+        description: 'Profesionální optimalizace rychlosti webu. Zrychlíme vaše stránky a zlepšíme skóre v Google PageSpeed Insights na 100 bodů.',
+        keywords: 'Rychlost Webu, Optimalizace webu, Zrychlení webu',
+    },
     nav: {
         features: 'Funkce',
         testimonials: 'Reference',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Přestaňte ztrácet zákazníky kvůli pomalému načítání',
-        title: 'Udělejte svůj web',
-        titleGradient: 'Neuvěřitelně Rychlý',
-        description: 'Optimalizujeme kód, obrázky a nastavení serveru pro 100% na PageSpeed Insights. Lepší SEO, šťastní uživatelé, více prodejů.',
+        title: 'Maximální Rychlost',
+        titleGradient: 'Webu (PageSpeed)',
+        description: 'Přestaňte přicházet o zákazníky kvůli pomalému webu. Vyladíme vaše Core Web Vitals na 100%.',
         cta: 'Získat Zrychlení',
     },
     scoreComparison: {

@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Hastighedsoptimering af Hjemmeside & PageSpeed',
+        description: 'Professionel hastighedsoptimering. Vi gør din hjemmeside hurtigere og sikrer 100/100 i Google PageSpeed Insights.',
+        keywords: 'Hastighedsoptimering, Google PageSpeed, Hurtigere hjemmeside',
+    },
     nav: {
         features: 'Funktioner',
         testimonials: 'Udtalelser',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Stop med at miste kunder på grund af langsom indlæsning',
-        title: 'Gør din hjemmeside',
-        titleGradient: 'Utrolig Hurtig',
-        description: 'Vi optimerer kode, billeder og serverindstillinger til 100% på PageSpeed Insights. Bedre SEO, glade brugere, mere salg.',
+        title: 'Effektiv Hastighedsoptimering',
+        titleGradient: '(PageSpeed)',
+        description: 'Mist ikke kunder på grund af langsomme indlæsningstider. Vi optimerer dine Core Web Vitals.',
         cta: 'Få dit Boost',
     },
     scoreComparison: {

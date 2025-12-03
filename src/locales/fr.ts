@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Optimisation Vitesse Site Internet & Google PageSpeed',
+        description: 'Expert en optimisation de la vitesse de site. Améliorez votre score Google PageSpeed et réduisez le temps de chargement. Analyse gratuite.',
+        keywords: 'Optimisation Vitesse Site Internet, Google PageSpeed, Analyse vitesse site, Temps de chargement',
+    },
     nav: {
         features: 'Fonctionnalités',
         testimonials: 'Témoignages',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Arrêtez de perdre des clients à cause des temps de chargement lents',
-        title: 'Rendez votre site web',
-        titleGradient: 'Incroyablement Rapide',
-        description: 'Nous optimisons votre code, vos images et vos paramètres serveur pour atteindre 100% sur PageSpeed Insights. Meilleur SEO, utilisateurs plus heureux, plus de ventes.',
+        title: 'Accélérez votre Site Internet',
+        titleGradient: 'au Maximum',
+        description: "Service d'optimisation de la vitesse. Nous visons un score de 100/100 sur Core Web Vitals.",
         cta: 'Boostez votre vitesse',
     },
     scoreComparison: {

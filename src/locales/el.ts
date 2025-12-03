@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Βελτίωση PageSpeed & Ταχύτητα Ιστοσελίδας (100%)',
+        description: 'Ειδικοί στο PageSpeed Optimization. Αυξάνουμε την ταχύτητα της ιστοσελίδας σας και το σκορ στο Google PageSpeed Insights στο 100.',
+        keywords: 'PageSpeed Insights, Ταχύτητα ιστοσελίδας, Βελτίωση ιστοσελίδας',
+    },
     nav: {
         features: 'Χαρακτηριστικά',
         testimonials: 'Μαρτυρίες',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Σταματήστε να χάνετε πελάτες λόγω αργής φόρτωσης',
-        title: 'Κάντε την ιστοσελίδα σας',
-        titleGradient: 'Απίστευτα Γρήγορη',
-        description: 'Βελτιστοποιούμε κώδικα, εικόνες και ρυθμίσεις διακομιστή για 100% στο PageSpeed Insights. Καλύτερο SEO, χαρούμενοι χρήστες, περισσότερες πωλήσεις.',
+        title: 'Μέγιστη Ταχύτητα',
+        titleGradient: 'Ιστοσελίδας (PageSpeed)',
+        description: 'Σταματήστε να χάνετε πελάτες λόγω αργής φόρτωσης. Βελτιώνουμε τα Core Web Vitals στο 100%.',
         cta: 'Αποκτήστε την Ώθηση',
     },
     scoreComparison: {

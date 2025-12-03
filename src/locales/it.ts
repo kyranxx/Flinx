@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Ottimizzazione Velocità Sito Web (100% PageSpeed)',
+        description: 'Esperti in velocità sito web. Velocizziamo il tuo sito e ottimizziamo i Core Web Vitals per Google. Analisi gratuita.',
+        keywords: 'Velocità sito web, Velocizzare sito, Sito lento, Core Web Vitals',
+    },
     nav: {
         features: 'Funzionalità',
         testimonials: 'Testimonianze',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Smetti di perdere clienti a causa del caricamento lento',
-        title: 'Rendi il tuo sito',
-        titleGradient: 'Incredibilmente Veloce',
-        description: 'Ottimizziamo codice, immagini e impostazioni server per raggiungere il 100% su PageSpeed Insights. SEO migliore, utenti più felici, più vendite.',
+        title: 'Velocizza il tuo Sito Web',
+        titleGradient: 'al Massimo',
+        description: 'Servizio di ottimizzazione PageSpeed. Basta perdere clienti per un sito lento.',
         cta: 'Ottieni il Boost',
     },
     scoreComparison: {

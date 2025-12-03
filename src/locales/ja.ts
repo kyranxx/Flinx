@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - サイト速度の改善 & PageSpeed (100点満点)',
+        description: 'サイト速度の改善専門サービス。Google PageSpeed Insightsのスコアを100点にし、表示速度を高速化します。',
+        keywords: 'サイト速度 (Site Speed), 表示速度 (Display Speed), PageSpeed Insights',
+    },
     nav: {
         features: '機能',
         testimonials: 'お客様の声',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: '遅い読み込み時間で顧客を失うのはやめましょう',
-        title: 'あなたのウェブサイトを',
-        titleGradient: '驚くほど高速に',
-        description: 'コード、画像、サーバー設定を最適化し、PageSpeed Insightsで100%を達成します。より良いSEO、より満足したユーザー、より多くの売上を実現します。',
+        title: 'サイト速度を最大化',
+        titleGradient: '(PageSpeed)',
+        description: '読み込みが遅いサイトで顧客を逃さないでください。Core Web Vitalsを100点に改善します。',
         cta: 'スピードブーストを取得',
     },
     scoreComparison: {

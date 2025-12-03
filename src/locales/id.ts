@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Jasa Optimasi Website & Google PageSpeed',
+        description: 'Jasa optimasi kecepatan website profesional. Tingkatkan kecepatan loading dan skor Google PageSpeed hingga 100.',
+        keywords: 'Jasa Optimasi Website, Kecepatan Website, PageSpeed Insights',
+    },
     nav: {
         features: 'Fitur',
         testimonials: 'Testimoni',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Berhenti kehilangan pelanggan karena waktu muat yang lambat',
-        title: 'Buat Website Anda',
-        titleGradient: 'Cepat Secara Tidak Wajar',
-        description: 'Kami mengoptimalkan kode, gambar, dan pengaturan server Anda untuk mencapai 100% di PageSpeed Insights. SEO lebih baik, pengguna lebih senang, penjualan lebih banyak.',
+        title: 'Optimasi Kecepatan',
+        titleGradient: 'Website Maksimal',
+        description: 'Jangan kehilangan pelanggan karena loading lama. Kami optimalkan Core Web Vitals Anda hingga 100%.',
         cta: 'Dapatkan Peningkatan Kecepatan',
     },
     scoreComparison: {

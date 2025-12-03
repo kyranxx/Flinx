@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Website Snelheid Optimalisatie & Verbeteren (100%)',
+        description: 'Expert in website snelheid optimalisatie. Wij maken uw trage website sneller en verbeteren uw Google PageSpeed score naar 100.',
+        keywords: 'Website Snelheid Optimalisatie, Website snelheid verbeteren, WordPress sneller maken',
+    },
     nav: {
         features: 'Functies',
         testimonials: 'Getuigenissen',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Verlies geen klanten meer door trage laadtijden',
-        title: 'Maak je website',
-        titleGradient: 'Ongelooflijk Snel',
-        description: 'We optimaliseren code, afbeeldingen en serverinstellingen voor 100% op PageSpeed Insights. Betere SEO, blijere gebruikers, meer verkoop.',
+        title: 'Professionelle Website',
+        titleGradient: 'Snelheid Optimalisatie',
+        description: 'Maak uw website sneller. Wij verbeteren uw Core Web Vitals naar 100%.',
         cta: 'Krijg je Snelheidsboost',
     },
     scoreComparison: {

@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Kotisivujen Optimointi & Google PageSpeed (100%)',
+        description: 'Asiantuntevaa kotisivujen optimointia. Nopeutamme sivustoasi ja parannamme Google PageSpeed -tuloksia.',
+        keywords: 'Kotisivujen Optimointi, Google PageSpeed, Nopeat nettisivut',
+    },
     nav: {
         features: 'Ominaisuudet',
         testimonials: 'Suosittelut',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Lopeta asiakkaiden menettäminen hitaan latauksen vuoksi',
-        title: 'Tee sivustostasi',
-        titleGradient: 'Uskomattoman Nopea',
-        description: 'Optimoimme koodin, kuvat ja palvelinasetukset 100% PageSpeed Insights -tulokseen. Parempi SEO, onnelliset käyttäjät, enemmän myyntiä.',
+        title: 'Kotisivujen Optimointi',
+        titleGradient: 'ja Nopeus',
+        description: 'Älä menetä asiakkaita hitaan sivuston takia. Nostamme Core Web Vitals -pisteet sataan.',
         cta: 'Hanki Boost',
     },
     scoreComparison: {

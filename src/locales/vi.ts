@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Tối ưu hóa Tốc độ Website & Google PageSpeed',
+        description: 'Dịch vụ tối ưu hóa tốc độ website chuyên nghiệp. Cải thiện điểm số Google PageSpeed lên 100 và tăng tốc độ tải trang.',
+        keywords: 'Tối ưu hóa Tốc độ Website, Kiểm tra tốc độ website, PageSpeed Insights',
+    },
     nav: {
         features: 'Tính năng',
         testimonials: 'Đánh giá',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Ngừng mất khách hàng vì tốc độ tải chậm',
-        title: 'Làm cho trang web của bạn',
-        titleGradient: 'Cực kỳ nhanh',
-        description: 'Chúng tôi tối ưu hóa mã, hình ảnh và cài đặt máy chủ của bạn để đạt 100% trên PageSpeed Insights. SEO tốt hơn, người dùng hài lòng hơn, doanh số cao hơn.',
+        title: 'Tăng Tốc độ Website',
+        titleGradient: 'lên Mức Tối đa',
+        description: 'Đừng để website chậm làm mất khách hàng. Chúng tôi tối ưu Core Web Vitals đạt điểm tuyệt đối.',
         cta: 'Nhận tăng tốc độ',
     },
     scoreComparison: {

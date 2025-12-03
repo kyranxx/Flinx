@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Expertos en Optimización WPO y Velocidad Web',
+        description: 'Agencia de WPO (Web Performance Optimization). Mejoramos la velocidad web y tus Core Web Vitals para vender más. Auditoría gratuita.',
+        keywords: 'Optimización WPO, Velocidad web, Mejorar velocidad web, Core Web Vitals',
+    },
     nav: {
         features: 'Características',
         testimonials: 'Testimonios',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Deja de perder clientes por cargas lentas',
-        title: 'Haz tu sitio web',
-        titleGradient: 'Increíblemente Rápido',
-        description: 'Optimizamos código, imágenes y servidor para el 100% en PageSpeed Insights. Mejor SEO, usuarios felices, más ventas.',
+        title: 'Acelera tu Web al Máximo',
+        titleGradient: '(Optimización WPO)',
+        description: 'Deja de perder clientes. Llevamos tu rendimiento al 100% en Google PageSpeed.',
         cta: 'Obtén tu Impulso',
     },
     scoreComparison: {

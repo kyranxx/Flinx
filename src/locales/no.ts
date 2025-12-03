@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Hastighetsoptimalisering av Nettside & PageSpeed',
+        description: 'Profesjonell hastighetsoptimalisering. Vi gjør nettsiden din raskere og sikrer 100/100 i Google PageSpeed Insights.',
+        keywords: 'Hastighetsoptimalisering, Raskere nettside, Google PageSpeed',
+    },
     nav: {
         features: 'Funksjoner',
         testimonials: 'Uttalelser',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Slutt å miste kunder på grunn av treg lasting',
-        title: 'Gjør nettstedet ditt',
-        titleGradient: 'Utrolig Raskt',
-        description: 'Vi optimaliserer kode, bilder og serverinnstillinger til 100% på PageSpeed Insights. Bedre SEO, glade brukere, mer salg.',
+        title: 'Effektiv Hastighetsoptimalisering',
+        titleGradient: '(PageSpeed)',
+        description: 'Ikke mist kunder på grunn av treg lasting. Vi optimaliserer dine Core Web Vitals til 100%.',
         cta: 'Få din Boost',
     },
     scoreComparison: {

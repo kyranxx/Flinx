@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Optimizacija Brzine Web Stranice & PageSpeed',
+        description: 'Profesionalna optimizacija brzine web stranice. Ubrzavamo vašu stranicu i postižemo 100/100 na Google PageSpeed Insights.',
+        keywords: 'Optimizacija web stranice, Brzina web stranice, PageSpeed Insights',
+    },
     nav: {
         features: 'Značajke',
         testimonials: 'Svjedočanstva',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Prestanite gubiti klijente zbog sporog učitavanja',
-        title: 'Učinite svoju web stranicu',
-        titleGradient: 'Nevjerojatno Brzom',
-        description: 'Optimiziramo vaš kod, slike i postavke poslužitelja kako bismo postigli 100% na PageSpeed Insights. Bolji SEO, sretniji korisnici, više prodaje.',
+        title: 'Maksimalna Brzina',
+        titleGradient: 'Web Stranice',
+        description: 'Prestanite gubiti klijente zbog sporog učitavanja. Optimiziramo vaše Core Web Vitals na 100%.',
         cta: 'Dobijte pojačanje brzine',
     },
     scoreComparison: {

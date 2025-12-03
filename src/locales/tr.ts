@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Site Hızı Optimizasyonu & Google PageSpeed (100%)',
+        description: 'Profesyonel site hızı optimizasyonu. Web sitenizi hızlandırın ve Google PageSpeed puanınızı 100\'e çıkarın.',
+        keywords: 'Site Hızı, PageSpeed, Site hızlandırma',
+    },
     nav: {
         features: 'Özellikler',
         testimonials: 'Müşteri Yorumları',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Yavaş yükleme süreleri yüzünden müşteri kaybetmeyi bırakın',
-        title: 'Web sitenizi',
-        titleGradient: 'İnanılmaz Hızlı yapın',
-        description: 'PageSpeed Insights\'ta %100\'e ulaşmak için kodunuzu, görsellerinizi ve sunucu ayarlarınızı optimize ediyoruz. Daha iyi SEO, daha mutlu kullanıcılar, daha fazla satış.',
+        title: 'Site Hızını',
+        titleGradient: 'Maksimuma Çıkarın (PageSpeed)',
+        description: 'Yavaş yüklenen siteler müşteri kaybettirir. Core Web Vitals puanlarınızı 100\'e yükseltiyoruz.',
         cta: 'Hız Artışını Alın',
     },
     scoreComparison: {

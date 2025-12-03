@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - ওয়েবসাইট স্পিড অপ্টিমাইজেশন & Google PageSpeed',
+        description: 'পেশাদার ওয়েবসাইট স্পিড অপ্টিমাইজেশন সার্ভিস। আমরা আপনার ওয়েবসাইটের গতি বাড়াই এবং Google PageSpeed স্কোর ১০০ তে উন্নীত করি।',
+        keywords: 'ওয়েবসাইট স্পিড অপ্টিমাইজেশন, ওয়েবসাইট গতি বৃদ্ধি, PageSpeed Insights',
+    },
     nav: {
         features: 'বৈশিষ্ট্য',
         testimonials: 'প্রশংসাপত্র',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'ধীর লোডিং সময়ের কারণে গ্রাহক হারানো বন্ধ করুন',
-        title: 'আপনার ওয়েবসাইটকে',
-        titleGradient: 'অবিশ্বাস্যভাবে দ্রুত করুন',
-        description: 'আমরা PageSpeed Insights এ 100% পৌঁছানোর জন্য আপনার কোড, ছবি এবং সার্ভার সেটিংস অপটিমাইজ করি। আরও ভাল SEO, আরও খুশি ব্যবহারকারী, আরও বেশি বিক্রয়।',
+        title: 'ওয়েবসাইট স্পিড',
+        titleGradient: 'অপ্টিমাইজেশন (PageSpeed)',
+        description: 'ধীর গতির কারণে গ্রাহক হারানো বন্ধ করুন। আমরা আপনার Core Web Vitals ১০০% এ নিয়ে যাই।',
         cta: 'আপনার গতি বৃদ্ধি পান',
     },
     scoreComparison: {

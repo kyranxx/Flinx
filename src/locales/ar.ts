@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - تحسين سرعة الموقع & Google PageSpeed (100%)',
+        description: 'خدمة تحسين سرعة المواقع الاحترافية. نزيد سرعة موقعك ونرفع نقاط Google PageSpeed إلى 100.',
+        keywords: 'تحسين سرعة الموقع, تسريع الموقع, PageSpeed Insights',
+    },
     nav: {
         features: 'الميزات',
         testimonials: 'الشهادات',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'توقف عن خسارة العملاء بسبب أوقات التحميل البطيئة',
-        title: 'اجعل موقعك',
-        titleGradient: 'سريعًا بشكل غير عادل',
-        description: 'نقوم بتحسين الكود والصور وإعدادات الخادم للوصول إلى 100٪ على PageSpeed Insights. تحسين محركات البحث بشكل أفضل، مستخدمين أكثر سعادة، مبيعات أكثر.',
+        title: 'تحسين سرعة',
+        titleGradient: 'الموقع (PageSpeed)',
+        description: 'لا تخسر العملاء بسبب بطء التحميل. نرفع نقاط Core Web Vitals إلى 100%.',
         cta: 'احصل على تعزيز السرعة',
     },
     scoreComparison: {

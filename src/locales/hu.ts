@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Weboldal Optimalizálás & Sebesség Növelés',
+        description: 'Professzionális weboldal optimalizálás. Javítjuk a betöltési sebességet és a Google PageSpeed pontszámot 100-ra.',
+        keywords: 'Weboldal Optimalizálás, Weboldal gyorsítás, PageSpeed',
+    },
     nav: {
         features: 'Funkciók',
         testimonials: 'Vélemények',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Ne veszíts több ügyfelet a lassú betöltés miatt',
-        title: 'Tedd a weboldalad',
-        titleGradient: 'Hihetetlenül Gyorssá',
-        description: 'Optimalizáljuk a kódot, képeket és szerverbeállításokat a 100%-os PageSpeed Insights eredményért. Jobb SEO, boldog felhasználók, több eladás.',
+        title: 'Weboldal Optimalizálás',
+        titleGradient: 'és Gyorsítás',
+        description: 'Ne veszítsen ügyfeleket a lassú weboldal miatt. 100%-os Core Web Vitals teljesítményt garantálunk.',
         cta: 'Szerezd meg a Boostot',
     },
     scoreComparison: {

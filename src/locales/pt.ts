@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Especialistas em Otimização de Sites e Google PageSpeed',
+        description: 'Serviço de otimização de sites. Aumente a velocidade do seu site e pontuação no Google PageSpeed. Melhore seu SEO e vendas.',
+        keywords: 'Otimização de Sites, Google PageSpeed, Velocidade do site, Core Web Vitals',
+    },
     nav: {
         features: 'Funcionalidades',
         testimonials: 'Depoimentos',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Pare de perder clientes por carregamento lento',
-        title: 'Torne seu site',
-        titleGradient: 'Incrivelmente Rápido',
-        description: 'Otimizamos código, imagens e configurações do servidor para atingir 100% no PageSpeed Insights. Melhor SEO, usuários felizes, mais vendas.',
+        title: 'Acelere seu Site ao Máximo',
+        titleGradient: '(Otimização de Performance)',
+        description: 'Pare de perder clientes. Levamos sua pontuação Core Web Vitals para 100%.',
         cta: 'Obtenha seu Impulso',
     },
     scoreComparison: {

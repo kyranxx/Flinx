@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Оптимизация на Скоростта на Сайт & PageSpeed',
+        description: 'Професионална оптимизация на скоростта на сайт. Увеличаваме скоростта на зареждане и постигаме 100/100 в Google PageSpeed.',
+        keywords: 'Оптимизация на сайт, Скорост на сайт, PageSpeed Insights',
+    },
     nav: {
         features: 'Характеристики',
         testimonials: 'Отзиви',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Спрете да губите клиенти заради бавно зареждане',
-        title: 'Направете сайта си',
-        titleGradient: 'Невероятно Бърз',
-        description: 'Оптимизираме код, изображения и сървърни настройки за 100% в PageSpeed Insights. По-добро SEO, щастливи потребители, повече продажби.',
+        title: 'Максимална Скорост',
+        titleGradient: 'на Сайт (PageSpeed)',
+        description: 'Спрете да губите клиенти заради бавно зареждане. Оптимизираме вашите Core Web Vitals до 100%.',
         cta: 'Вземи Ускорение',
     },
     scoreComparison: {

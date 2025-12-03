@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Servicii Optimizare Viteza Site & PageSpeed',
+        description: 'Servicii profesionale de optimizare site. Creștem viteza de încărcare și obținem scorul 100/100 în Google PageSpeed Insights.',
+        keywords: 'Optimizare Viteza Site, Optimizare site, Google PageSpeed',
+    },
     nav: {
         features: 'Funcționalități',
         testimonials: 'Testimoniale',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Nu mai pierde clienți din cauza încărcării lente',
-        title: 'Fă-ți site-ul',
-        titleGradient: 'Incredibil de Rapid',
-        description: 'Optimizăm codul, imaginile și setările serverului pentru 100% pe PageSpeed Insights. SEO mai bun, utilizatori fericiți, mai multe vânzări.',
+        title: 'Optimizare Viteza',
+        titleGradient: 'Site la Maxim',
+        description: 'Nu mai pierde clienți din cauza unui site lent. Îți aducem performanța la 100%.',
         cta: 'Obține Boost-ul',
     },
     scoreComparison: {

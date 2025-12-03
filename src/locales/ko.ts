@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Google PageSpeed 최적화 & 웹사이트 속도 향상',
+        description: '웹사이트 속도 최적화 전문가. Google PageSpeed 점수를 100점으로 높이고 로딩 시간을 단축하세요.',
+        keywords: 'PageSpeed (페이지스피드), 웹사이트 속도, 속도 최적화',
+    },
     nav: {
         features: '기능',
         testimonials: '고객 후기',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: '느린 로딩 시간으로 고객을 잃는 것을 멈추세요',
-        title: '웹사이트를',
-        titleGradient: '엄청나게 빠르게',
-        description: 'PageSpeed Insights에서 100%를 달성하기 위해 코드, 이미지, 서버 설정을 최적화합니다. 더 나은 SEO, 더 행복한 사용자, 더 많은 판매.',
+        title: '웹사이트 속도 및',
+        titleGradient: 'PageSpeed 최적화',
+        description: '느린 로딩으로 고객을 놓치지 마세요. Core Web Vitals 점수를 100점으로 개선해 드립니다.',
         cta: '속도 향상 받기',
     },
     scoreComparison: {

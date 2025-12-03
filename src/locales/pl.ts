@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Optymalizacja Strony Internetowej & PageSpeed (100%)',
+        description: 'Profesjonalna optymalizacja strony internetowej. Przyspieszamy działanie Twojej witryny i poprawiamy wynik Google PageSpeed.',
+        keywords: 'Optymalizacja Strony Internetowej, Optymalizacja strony WordPress, Przyspieszanie stron',
+    },
     nav: {
         features: 'Funkcje',
         testimonials: 'Opinie',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Przestań tracić klientów przez wolne ładowanie',
-        title: 'Spraw, by Twoja strona była',
-        titleGradient: 'Niesamowicie Szybka',
-        description: 'Optymalizujemy kod, obrazy i ustawienia serwera, aby osiągnąć 100% w PageSpeed Insights. Lepsze SEO, zadowoleni użytkownicy, więcej sprzedaży.',
+        title: 'Maksymalna Optymalizacja',
+        titleGradient: 'Strony Internetowej',
+        description: 'Twój serwis działa wolno? Przyspieszymy go i poprawimy Core Web Vitals do 100%.',
         cta: 'Zdobądź Przyspieszenie',
     },
     scoreComparison: {

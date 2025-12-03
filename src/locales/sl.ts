@@ -1,4 +1,9 @@
 export default {
+    meta: {
+        title: 'Flinx - Optimizacija Hitrosti Spletne Strani',
+        description: 'Profesionalna optimizacija hitrosti spletne strani. Pohitrimo vašo stran in dosežemo 100/100 na Google PageSpeed Insights.',
+        keywords: 'Optimizacija spletne strani, Hitrost spletne strani, PageSpeed Insights',
+    },
     nav: {
         features: 'Značilnosti',
         testimonials: 'Mnenja',
@@ -29,9 +34,9 @@ export default {
     },
     hero: {
         badge: 'Prenehajte izgubljati stranke zaradi počasnega nalaganja',
-        title: 'Naredite svojo spletno stran',
-        titleGradient: 'Neverjetno Hitro',
-        description: 'Optimiziramo vašo kodo, slike in nastavitve strežnika, da dosežemo 100% na PageSpeed Insights. Boljši SEO, srečnejši uporabniki, več prodaje.',
+        title: 'Največja Hitrost',
+        titleGradient: 'Spletne Strani',
+        description: 'Nehajte izgubljati stranke zaradi počasnega nalaganja. Optimiziramo vaše Core Web Vitals na 100%.',
         cta: 'Pridobite hitrostni boost',
     },
     scoreComparison: {
