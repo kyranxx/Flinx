@@ -1,18 +1,13 @@
 import { MetadataRoute } from 'next'
+import { languages } from '@/lib/languages'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        {
-            url: 'https://flinx-seven.vercel.app',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 1,
-        },
-        {
-            url: 'https://flinx-seven.vercel.app/en',
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-    ]
+    const baseUrl = 'https://www.flinx.site';
+
+    return languages.map((locale) => ({
+        url: `${baseUrl}/${locale.code}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: locale.code === 'en' ? 1 : 0.9,
+    }));
 }
