@@ -23,14 +23,50 @@ export default function ContactForm({ translations }: ContactFormProps) {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!captchaValue) return;
 
         setFormState('submitting');
-        setTimeout(() => {
-            setFormState('success');
-        }, 1500);
+
+        // Get form data
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            website: formData.get('website'),
+            message: formData.get('message'),
+            captchaToken: captchaValue,
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setFormState('success');
+                // Reset form
+                e.currentTarget.reset();
+                // Reset captcha
+                recaptchaRef.current?.reset();
+                setCaptchaValue(null);
+            } else {
+                console.error('Form submission error:', result.error);
+                alert(result.error || 'An error occurred. Please try again.');
+                setFormState('idle');
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            alert('Network error. Please check your connection and try again.');
+            setFormState('idle');
+        }
     };
 
     const handleCaptchaChange = (value: string | null) => {
@@ -121,6 +157,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     <label htmlFor="message" className="text-sm md:text-base font-medium text-gray-300">{contact.form.message}</label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         rows={4}
                                         onFocus={handleFocus}
                                         placeholder={contact.form.messagePlaceholder}
@@ -133,7 +170,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     {isFormFocused && (
                                         <ReCAPTCHA
                                             ref={recaptchaRef}
-                                            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with your actual key
+                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
                                             onChange={handleCaptchaChange}
                                             theme="dark"
                                         />
