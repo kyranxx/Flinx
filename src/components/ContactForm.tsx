@@ -79,6 +79,8 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                         <label htmlFor="name" className="text-sm md:text-base font-medium text-gray-300">{contact.form.name}</label>
                                         <input
                                             id="name"
+                                            name="name"
+                                            autoComplete="name"
                                             required
                                             type="text"
                                             onFocus={handleFocus}
@@ -90,6 +92,8 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                         <label htmlFor="website" className="text-sm md:text-base font-medium text-gray-300">{contact.form.website}</label>
                                         <input
                                             id="website"
+                                            name="website"
+                                            autoComplete="url"
                                             required
                                             type="url"
                                             onFocus={handleFocus}
@@ -103,6 +107,8 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     <label htmlFor="email" className="text-sm md:text-base font-medium text-gray-300">{contact.form.email}</label>
                                     <input
                                         id="email"
+                                        name="email"
+                                        autoComplete="email"
                                         required
                                         type="email"
                                         onFocus={handleFocus}
