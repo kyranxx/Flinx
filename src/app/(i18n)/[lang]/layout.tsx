@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             siteName: "Flinx",
             images: [
                 {
-                    url: `${baseUrl}/flinx-logo.png`,
+                    url: `${baseUrl}/og-image.png`,
                     width: 1200,
                     height: 630,
                     alt: "Flinx - 100% PageSpeed Optimization",
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             card: "summary_large_image",
             title: "Flinx - 100% PageSpeed Optimization",
             description: translations.hero.description,
-            images: [`${baseUrl}/flinx-logo.png`],
+            images: [`${baseUrl}/og-image.png`],
         },
     };
 }

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         siteName: "Flinx",
         images: [
             {
-                url: "https://www.flinx.site/flinx-logo.png",
+                url: "https://www.flinx.site/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Flinx - 100% PageSpeed Optimization",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
-        images: ["https://www.flinx.site/flinx-logo.png"],
+        images: ["https://www.flinx.site/og-image.png"],
     },
 };
 
