@@ -23,15 +23,24 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://flinx.vercel.app",
+        url: "https://www.flinx.site",
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
         siteName: "Flinx",
+        images: [
+            {
+                url: "https://www.flinx.site/flinx-logo.png",
+                width: 1200,
+                height: 630,
+                alt: "Flinx - 100% PageSpeed Optimization",
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
+        images: ["https://www.flinx.site/flinx-logo.png"],
     },
 };
 

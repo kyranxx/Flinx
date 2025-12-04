@@ -61,11 +61,20 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             title: "Flinx - 100% PageSpeed Optimization",
             description: translations.hero.description,
             siteName: "Flinx",
+            images: [
+                {
+                    url: `${baseUrl}/flinx-logo.png`,
+                    width: 1200,
+                    height: 630,
+                    alt: "Flinx - 100% PageSpeed Optimization",
+                },
+            ],
         },
         twitter: {
             card: "summary_large_image",
             title: "Flinx - 100% PageSpeed Optimization",
             description: translations.hero.description,
+            images: [`${baseUrl}/flinx-logo.png`],
         },
     };
 }
