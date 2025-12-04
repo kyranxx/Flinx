@@ -28,9 +28,10 @@ export default function ContactForm({ translations }: ContactFormProps) {
         if (!captchaValue) return;
 
         setFormState('submitting');
+        const form = e.currentTarget;
 
         // Get form data
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData(form);
         const data = {
             name: formData.get('name'),
             email: formData.get('email'),
@@ -53,7 +54,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             if (response.ok) {
                 setFormState('success');
                 // Reset form
-                e.currentTarget.reset();
+                form.reset();
                 // Reset captcha
                 recaptchaRef.current?.reset();
                 setCaptchaValue(null);
@@ -63,8 +64,8 @@ export default function ContactForm({ translations }: ContactFormProps) {
                 setFormState('idle');
             }
         } catch (error) {
-            console.error('Network error:', error);
-            alert('Network error. Please check your connection and try again.');
+            console.error('Submission error:', error);
+            alert('Something went wrong. Please try again.');
             setFormState('idle');
         }
     };
@@ -170,7 +171,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     {isFormFocused && (
                                         <ReCAPTCHA
                                             ref={recaptchaRef}
-                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LcuYiAsAAAAAKx-9UBfcvU_zPhTZ2mxraVwHEW9"}
                                             onChange={handleCaptchaChange}
                                             theme="dark"
                                         />
