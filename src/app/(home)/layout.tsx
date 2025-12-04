@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import { Outfit, Exo_2 } from "next/font/google";
+import { outfit, exo2 } from "@/lib/fonts";
 import "../globals.css";
-
-const outfit = Outfit({
-    subsets: ["latin"],
-    variable: "--font-outfit",
-    display: 'optional',
-});
-
-const exo2 = Exo_2({
-    subsets: ["latin"],
-    variable: "--font-exo2",
-    display: 'optional',
-});
 
 export const metadata: Metadata = {
     title: "Flinx - 100% PageSpeed Optimization",

@@ -1,21 +1,9 @@
 import type { Metadata } from "next";
-import { Outfit, Exo_2 } from "next/font/google";
 import "../../globals.css";
 import { getTranslation } from "@/lib/i18n";
 import { type Language, languages } from "@/lib/languages";
+import { getFontConfig, isRTL } from "@/lib/fonts";
 import Script from "next/script";
-
-const outfit = Outfit({
-    subsets: ["latin"],
-    variable: "--font-outfit",
-    display: 'optional',
-});
-
-const exo2 = Exo_2({
-    subsets: ["latin"],
-    variable: "--font-exo2",
-    display: 'optional',
-});
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -84,9 +72,11 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
 
 export default async function RootLayout({ children, params }: LayoutProps) {
     const { lang } = await params;
+    const fontConfig = getFontConfig(lang);
+    const rtl = isRTL(lang);
 
     return (
-        <html lang={lang}>
+        <html lang={lang} dir={rtl ? 'rtl' : 'ltr'}>
             <head>
                 {/* Google Analytics 4 */}
                 <Script
@@ -104,7 +94,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                     `}
                 </Script>
             </head>
-            <body className={`${outfit.variable} ${exo2.variable} font-sans`}>
+            <body className={`${fontConfig.className} font-sans`}>
                 {children}
             </body>
         </html>

@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-outfit)', 'sans-serif'],
+        sans: ['var(--font-outfit)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         logo: ['var(--font-exo2)', 'sans-serif'],
+        cjk: ['var(--font-cjk)', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
       },
     },
   },

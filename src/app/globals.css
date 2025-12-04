@@ -14,8 +14,28 @@
   --error: #ff3366;
   --text-primary: #ffffff;
   --text-secondary: #a3a3a3;
-  --font-family: var(--font-outfit), sans-serif;
-  --font-logo: var(--font-exo2), sans-serif;
+  
+  /* Font stacks with proper fallbacks for instant text display (LCP optimization) */
+  --font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-logo: var(--font-exo2), -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* CJK font fallback stack - system fonts first for instant display */
+  --font-cjk-fallback: 
+    var(--font-cjk), 
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 
+    'Noto Sans CJK SC', 'Source Han Sans CN', 
+    'メイリオ', 'Meiryo', 'MS Gothic',
+    '맑은 고딕', 'Malgun Gothic',
+    sans-serif;
+  
+  /* Arabic font fallback */
+  --font-arabic-fallback: var(--font-arabic), 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+  
+  /* Devanagari font fallback */
+  --font-devanagari-fallback: var(--font-devanagari), 'Nirmala UI', 'Mangal', sans-serif;
+  
+  /* Bengali font fallback */
+  --font-bengali-fallback: var(--font-bengali), 'Nirmala UI', 'Vrinda', sans-serif;
 }
 
 body {
@@ -23,6 +43,25 @@ body {
   color: var(--text-primary);
   font-family: var(--font-family);
   overflow-x: hidden;
+}
+
+/* CJK Language-specific font overrides */
+html[lang="zh"] body,
+html[lang="ja"] body,
+html[lang="ko"] body {
+  font-family: var(--font-cjk-fallback);
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-arabic-fallback);
+}
+
+html[lang="hi"] body {
+  font-family: var(--font-devanagari-fallback);
+}
+
+html[lang="bn"] body {
+  font-family: var(--font-bengali-fallback);
 }
 
 /* Typography */
