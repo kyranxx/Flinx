@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     languages.forEach((locale) => {
         languageAlternates[locale.code] = `${baseUrl}/${locale.code}`;
     });
-    // Add x-default fallback to English
-    languageAlternates['x-default'] = `${baseUrl}/en`;
+    // Add x-default fallback to root (English)
+    languageAlternates['x-default'] = baseUrl;
 
     return {
         title: "Flinx - 100% PageSpeed Optimization",

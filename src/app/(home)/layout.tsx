@@ -2,14 +2,36 @@ import type { Metadata } from "next";
 import { outfit, exo2 } from "@/lib/fonts";
 import Script from "next/script";
 import "../globals.css";
+import { languages } from "@/lib/languages";
+
+// Generate language alternates for hreflang tags
+const baseUrl = 'https://www.flinx.site';
+const languageAlternates: Record<string, string> = {};
+languages.forEach((locale) => {
+    languageAlternates[locale.code] = `${baseUrl}/${locale.code}`;
+});
+languageAlternates['x-default'] = baseUrl;
 
 export const metadata: Metadata = {
     title: "Flinx - 100% PageSpeed Optimization",
     description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
-    keywords: ["web performance", "PageSpeed", "optimization", "fast website", "SEO"],
+    keywords: [
+        "PageSpeed optimization",
+        "website speed",
+        "Core Web Vitals",
+        "web performance",
+        "fast website",
+        "SEO optimization",
+        "page load speed",
+        "website optimization service"
+    ],
     authors: [{ name: "Flinx" }],
     creator: "Flinx",
     publisher: "Flinx",
+    alternates: {
+        canonical: baseUrl,
+        languages: languageAlternates,
+    },
     robots: {
         index: true,
         follow: true,
@@ -24,13 +46,13 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://www.flinx.site",
+        url: baseUrl,
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
         siteName: "Flinx",
         images: [
             {
-                url: "https://www.flinx.site/og-image.png",
+                url: `${baseUrl}/og-image.png`,
                 width: 1200,
                 height: 630,
                 alt: "Flinx - 100% PageSpeed Optimization",
@@ -41,7 +63,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
-        images: ["https://www.flinx.site/og-image.png"],
+        images: [`${baseUrl}/og-image.png`],
     },
 };
 
