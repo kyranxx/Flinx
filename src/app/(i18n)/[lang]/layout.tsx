@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     languageAlternates['x-default'] = baseUrl;
 
     return {
-        title: "Flinx - 100% PageSpeed Optimization",
-        description: translations.hero.description,
-        keywords: ["web performance", "PageSpeed", "optimization", "fast website", "SEO"],
+        title: translations.meta.title,
+        description: translations.meta.description,
+        keywords: translations.meta.keywords,
         authors: [{ name: "Flinx" }],
         creator: "Flinx",
         publisher: "Flinx",
@@ -58,22 +58,22 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             type: "website",
             locale: lang === 'en' ? 'en_US' : `${lang}_${lang.toUpperCase()}`,
             url: `${baseUrl}/${lang}`,
-            title: "Flinx - 100% PageSpeed Optimization",
-            description: translations.hero.description,
+            title: translations.meta.title,
+            description: translations.meta.description,
             siteName: "Flinx",
             images: [
                 {
                     url: `${baseUrl}/og-image.png`,
                     width: 1200,
                     height: 630,
-                    alt: "Flinx - 100% PageSpeed Optimization",
+                    alt: translations.meta.title,
                 },
             ],
         },
         twitter: {
             card: "summary_large_image",
-            title: "Flinx - 100% PageSpeed Optimization",
-            description: translations.hero.description,
+            title: translations.meta.title,
+            description: translations.meta.description,
             images: [`${baseUrl}/og-image.png`],
         },
     };

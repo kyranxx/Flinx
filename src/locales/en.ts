@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - Expert PageSpeed Optimization Service (100% Score)',
-        description: 'We fix slow website loading and optimize Core Web Vitals. Get a 100% Google PageSpeed score and boost your SEO rankings today.',
+        description: 'Professional PageSpeed optimization that transforms slow websites into blazing-fast experiences. Get 100% Google PageSpeed scores, improved Core Web Vitals, better SEO rankings. Money-back guarantee included.',
         keywords: 'PageSpeed Optimization, Fix slow website loading, Core Web Vitals',
     },
     nav: {
