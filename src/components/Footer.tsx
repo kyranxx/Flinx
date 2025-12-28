@@ -58,6 +58,13 @@ export default function Footer({ lang, translations }: FooterProps) {
                     <div>
                         <h3 className="text-base md:text-lg font-bold mb-4 text-white">Resources.</h3>
                         <nav className="flex flex-col gap-3">
+                            {/* Internal link to homepage for SEO */}
+                            <Link
+                                href="/"
+                                className="text-sm text-gray-300 hover:text-white transition-colors"
+                            >
+                                Flinx Homepage
+                            </Link>
                             <a
                                 href="https://pagespeed.web.dev/"
                                 target="_blank"
