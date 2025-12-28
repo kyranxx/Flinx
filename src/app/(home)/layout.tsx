@@ -14,7 +14,7 @@ languageAlternates['x-default'] = baseUrl;
 
 export const metadata: Metadata = {
     title: "Flinx - 100% PageSpeed Optimization",
-    description: "Professional PageSpeed optimization service that transforms slow websites into blazing-fast experiences. Get 100% Google PageSpeed scores, improved Core Web Vitals, and higher SEO rankings. Money-back guarantee.",
+    description: "Professional PageSpeed optimization for blazing-fast websites. Get 100% Google PageSpeed scores, improved Core Web Vitals, and better SEO rankings.",
     keywords: [
         "PageSpeed optimization",
         "website speed",

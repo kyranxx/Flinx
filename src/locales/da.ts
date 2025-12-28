@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - Hastighedsoptimering af Hjemmeside & PageSpeed',
-        description: 'Professionel hastighedsoptimering. Vi gør din hjemmeside hurtigere og sikrer 100/100 i Google PageSpeed Insights.',
+        description: 'Professionel hastighedsoptimering der gør din hjemmeside lynhurtig. Få 100/100 i Google PageSpeed Insights og bedre SEO-placering.',
         keywords: 'Hastighedsoptimering, Google PageSpeed, Hurtigere hjemmeside',
     },
     nav: {

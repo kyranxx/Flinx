@@ -67,7 +67,7 @@ export default function Footer({ lang, translations }: FooterProps) {
                                 Google PageSpeed Insights
                             </a>
                             <a
-                                href="https://web.dev/vitals/"
+                                href="https://web.dev/articles/vitals"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-gray-300 hover:text-white transition-colors"
@@ -75,7 +75,7 @@ export default function Footer({ lang, translations }: FooterProps) {
                                 Core Web Vitals
                             </a>
                             <a
-                                href="https://web.dev/performance/"
+                                href="https://web.dev/explore/fast"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm text-gray-300 hover:text-white transition-colors"

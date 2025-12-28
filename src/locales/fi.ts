@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - Kotisivujen Optimointi & Google PageSpeed (100%)',
-        description: 'Asiantuntevaa kotisivujen optimointia. Nopeutamme sivustoasi ja parannamme Google PageSpeed -tuloksia.',
+        description: 'Ammattimainen PageSpeed-optimointi nopeuttaa sivustoasi huomattavasti. Saat 100/100 Google PageSpeed Insightsissa ja paremmat hakukonetulokset.',
         keywords: 'Kotisivujen Optimointi, Google PageSpeed, Nopeat nettisivut',
     },
     nav: {
