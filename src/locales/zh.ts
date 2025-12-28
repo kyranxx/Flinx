@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - 网站速度优化 & Google PageSpeed (100分)',
-        description: '专业网站速度优化服务。将您的网站加载速度提升至极致，Google PageSpeed 得分达到 100 分，改善 Core Web Vitals，提高 SEO 排名。快速加载保证。',
+        description: '专业网站速度优化服务，让您的网站加载速度飞快。Google PageSpeed 得分达到 100 分，全面改善 Core Web Vitals 指标，提高 SEO 搜索排名，增加网站转化率。快速加载保证，100%满意退款。',
         keywords: '网站速度优化, 网页加速, PageSpeed Insights',
     },
     nav: {
