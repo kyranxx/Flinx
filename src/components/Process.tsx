@@ -61,7 +61,7 @@ export default function Process({ translations }: ProcessProps) {
 
                                 <div className="card hover:border-[var(--accent-primary)]/40 transition-all duration-300 h-full relative z-10 overflow-visible text-center md:text-left">
                                     {/* Step number */}
-                                    <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[var(--accent-primary)] text-white font-bold flex items-center justify-center text-sm z-20">
+                                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-[var(--accent-primary)] text-white font-bold flex items-center justify-center text-lg z-20 shadow-lg">
                                         {index + 1}
                                     </div>
 
