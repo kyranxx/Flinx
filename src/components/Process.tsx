@@ -42,13 +42,13 @@ export default function Process({ translations }: ProcessProps) {
                     <p className="text-base md:text-lg text-gray-300">{translations.process.subtitle}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4 overflow-visible">
                     {steps.map((step: any, index: number) => {
                         const Icon = step.icon;
                         return (
                             <div
                                 key={index}
-                                className="relative"
+                                className="relative overflow-visible"
                             >
                                 {/* Arrow connector - hide on last item and on mobile */}
                                 {index < steps.length - 1 && (
@@ -59,14 +59,14 @@ export default function Process({ translations }: ProcessProps) {
                                     </div>
                                 )}
 
-                                <div className="card hover:border-[var(--accent-primary)]/40 transition-all duration-300 h-full relative z-10">
+                                <div className="card hover:border-[var(--accent-primary)]/40 transition-all duration-300 h-full relative z-10 overflow-visible text-center md:text-left">
                                     {/* Step number */}
-                                    <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[var(--accent-primary)] text-black font-bold flex items-center justify-center text-sm">
+                                    <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[var(--accent-primary)] text-white font-bold flex items-center justify-center text-sm z-20">
                                         {index + 1}
                                     </div>
 
                                     {/* Icon with gradient */}
-                                    <div className={`mb-4 w-16 h-16 rounded-xl bg-gradient-to-br ${step.color} p-0.5`}>
+                                    <div className={`mb-4 w-16 h-16 rounded-xl bg-gradient-to-br ${step.color} p-0.5 mx-auto md:mx-0`}>
                                         <div className="w-full h-full bg-[var(--bg-card)] rounded-xl flex items-center justify-center">
                                             <Icon size={32} className="text-white" />
                                         </div>
