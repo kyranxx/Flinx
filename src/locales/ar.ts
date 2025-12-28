@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - تحسين سرعة الموقع & Google PageSpeed (100%)',
-        description: 'خدمة تحسين سرعة المواقع الاحترافية. نزيد سرعة موقعك ونرفع نقاط Google PageSpeed إلى 100.',
+        description: 'خدمة تحسين سرعة المواقع الاحترافية. نرفع سرعة موقعك ونقاط Google PageSpeed إلى 100، مع تحسين Core Web Vitals لتحقيق ترتيب أفضل في محركات البحث. ضمان السرعة.',
         keywords: 'تحسين سرعة الموقع, تسريع الموقع, PageSpeed Insights',
     },
     nav: {

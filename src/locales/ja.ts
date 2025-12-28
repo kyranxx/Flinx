@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - サイト速度の改善 & PageSpeed (100点満点)',
-        description: 'サイト速度の改善専門サービス。Google PageSpeed Insightsのスコアを100点にし、表示速度を高速化します。',
+        description: 'プロフェッショナルなサイト速度最適化サービス。Google PageSpeed Insightsのスコアを100点にし、Core Web Vitalsを改善してSEO順位を向上させます。表示速度の高速化を保証。',
         keywords: 'サイト速度 (Site Speed), 表示速度 (Display Speed), PageSpeed Insights',
     },
     nav: {

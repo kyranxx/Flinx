@@ -1,7 +1,7 @@
 export default {
     meta: {
         title: 'Flinx - Google PageSpeed 최적화 & 웹사이트 속도 향상',
-        description: '웹사이트 속도 최적화 전문가. Google PageSpeed 점수를 100점으로 높이고 로딩 시간을 단축하세요.',
+        description: '전문 웹사이트 속도 최적화 서비스. Google PageSpeed 점수를 100점으로 높이고, Core Web Vitals를 개선하여 SEO 순위를 향상시킵니다. 로딩 시간 단축 보장.',
         keywords: 'PageSpeed (페이지스피드), 웹사이트 속도, 속도 최적화',
     },
     nav: {
