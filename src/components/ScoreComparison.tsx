@@ -6,9 +6,10 @@ interface ScoreRingProps {
     score: number;
     label: string;
     size?: number;
+    tone?: "before" | "after";
 }
 
-function ScoreRing({ score, label, size = 120 }: ScoreRingProps) {
+function ScoreRing({ score, label, size = 120, tone = "after" }: ScoreRingProps) {
     let color = "#0cce6b"; // Green (90-100)
     if (score < 50) color = "#ff4e42"; // Red (0-49)
     else if (score < 90) color = "#ffa400"; // Orange (50-89)
@@ -25,13 +26,16 @@ function ScoreRing({ score, label, size = 120 }: ScoreRingProps) {
             role="img"
             aria-label={`${label}: ${score}/100`}
         >
-            <div className="relative" style={{ width, height: width }}>
+            <div
+                className={`relative rounded-full ${tone === "after" ? "shadow-[0_0_24px_rgba(0,255,157,0.12)]" : ""}`}
+                style={{ width: `min(${width}px, 18vw)`, height: `min(${width}px, 18vw)` }}
+            >
                 <svg className="w-full h-full transform -rotate-90">
                     <circle
                         cx={width / 2}
                         cy={width / 2}
                         r={radius}
-                        stroke="#1a1a1a"
+                        stroke="rgba(255,255,255,0.1)"
                         strokeWidth={strokeWidth}
                         fill="none"
                     />
@@ -59,7 +63,7 @@ function ScoreRing({ score, label, size = 120 }: ScoreRingProps) {
                     </span>
                 </div>
             </div>
-            <span className="text-[10px] md:text-xs font-semibold text-gray-300 text-center max-w-[60px] leading-tight">{label}</span>
+            <span className="text-[11px] md:text-[13px] font-semibold text-gray-200 text-center max-w-[86px] leading-tight">{label}</span>
         </div>
     );
 }
@@ -79,39 +83,52 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
     ];
 
     return (
-        <div className="py-8 w-full max-w-7xl mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-                {/* Before Scores */}
-                <div className="flex items-center gap-4">
-                    <span className="text-red-400 font-bold text-sm uppercase mr-2">{scoreComparison.before.label}</span>
+        <div className="w-full max-w-4xl mx-auto px-0 md:px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch gap-4 md:gap-6">
+                <div className="rounded-lg border border-red-400/20 bg-red-500/[0.035] px-4 py-3.5 md:px-5">
+                    <div className="mb-3 flex items-baseline justify-between gap-4">
+                        <div>
+                            <p className="text-xs font-bold uppercase tracking-normal text-red-300">{scoreComparison.before.label}</p>
+                            <p className="mt-1 text-sm text-gray-300">{scoreComparison.before.subtitle}</p>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-4 gap-3">
                     {categories.map((cat) => (
                         <ScoreRing
                             key={`before-${cat.label}`}
                             score={cat.before}
                             label={cat.label}
-                            size={60}
+                            size={58}
+                            tone="before"
                         />
                     ))}
+                    </div>
                 </div>
 
-                {/* Arrow / Divider */}
-                <div className="hidden md:block text-gray-400">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="hidden lg:flex items-center justify-center text-gray-400">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </div>
 
-                {/* After Scores */}
-                <div className="flex items-center gap-4">
-                    <span className="text-green-400 font-bold text-sm uppercase mr-2">{scoreComparison.after.label}</span>
+                <div className="rounded-lg border border-[var(--success)]/25 bg-[var(--success)]/[0.045] px-4 py-3.5 md:px-5">
+                    <div className="mb-3 flex items-baseline justify-between gap-4">
+                        <div>
+                            <p className="text-xs font-bold uppercase tracking-normal text-[var(--success)]">{scoreComparison.after.label}</p>
+                            <p className="mt-1 text-sm text-gray-300">{scoreComparison.after.subtitle}</p>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-4 gap-3">
                     {categories.map((cat) => (
                         <ScoreRing
                             key={`after-${cat.label}`}
                             score={cat.after}
                             label={cat.label}
-                            size={60}
+                            size={58}
+                            tone="after"
                         />
                     ))}
+                    </div>
                 </div>
             </div>
         </div>

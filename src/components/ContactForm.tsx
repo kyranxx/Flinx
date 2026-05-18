@@ -75,25 +75,21 @@ export default function ContactForm({ translations }: ContactFormProps) {
     };
 
     return (
-        <section id="contact" className="py-12 md:py-20 px-4 relative overflow-hidden">
-            {/* Animated background glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-primary)]/5 via-transparent to-[var(--accent-primary)]/5 pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--accent-primary)]/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+        <section id="contact" className="section-band py-16 md:py-24 px-4 relative overflow-hidden bg-[radial-gradient(circle_at_50%_35%,rgba(109,40,217,0.18),transparent_38%),linear-gradient(180deg,#050505_0%,#080808_100%)]">
 
-            <div className="container mx-auto max-w-2xl relative z-10">
+            <div className="container mx-auto max-w-3xl relative z-10">
                 <div className="relative">
-                    {/* Animated gradient border */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[var(--accent-primary)] via-purple-500 to-[var(--accent-primary)] rounded-2xl opacity-75 blur-sm animate-pulse"></div>
+                    <div className="absolute -inset-px bg-gradient-to-r from-[var(--accent-primary)] via-purple-500 to-[var(--success)] rounded-lg opacity-80"></div>
 
-                    <div className="relative card border-2 border-[var(--accent-primary)]/30 bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)] shadow-2xl shadow-[var(--accent-primary)]/20">
+                    <div className="relative card border border-[var(--accent-primary)]/35 bg-gradient-to-b from-[#202020] to-[#151515] shadow-[0_24px_80px_rgba(109,40,217,0.16)] p-5 md:p-8">
                         <div className="text-center mb-8 md:mb-10">
                             <h2
-                                className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-white via-[var(--accent-primary)] to-white bg-clip-text text-transparent"
+                                className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-white via-[var(--accent-glow)] to-white bg-clip-text text-transparent"
                             >
                                 {contact.title}
                             </h2>
                             <p
-                                className="text-base md:text-lg text-gray-300"
+                                className="section-copy max-w-xl mx-auto"
                             >
                                 {contact.subtitle}
                             </p>
@@ -110,10 +106,10 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                 <p className="text-base md:text-lg text-gray-300">{contact.success.subtitle}</p>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <div className="space-y-2">
-                                        <label htmlFor="name" className="text-sm md:text-base font-medium text-gray-300">{contact.form.name}</label>
+                                        <label htmlFor="name" className="text-sm font-semibold text-gray-200">{contact.form.name}</label>
                                         <input
                                             id="name"
                                             name="name"
@@ -122,11 +118,11 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                             type="text"
                                             onFocus={handleFocus}
                                             placeholder={contact.form.namePlaceholder}
-                                            className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
+                                            className="w-full px-4 py-3.5 rounded-lg bg-black/60 border border-white/10 focus:border-[var(--accent-glow)] focus:outline-none transition-colors text-white text-base placeholder:text-gray-600"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="website" className="text-sm md:text-base font-medium text-gray-300">{contact.form.website}</label>
+                                        <label htmlFor="website" className="text-sm font-semibold text-gray-200">{contact.form.website}</label>
                                         <input
                                             id="website"
                                             name="website"
@@ -135,13 +131,13 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                             type="url"
                                             onFocus={handleFocus}
                                             placeholder={contact.form.websitePlaceholder}
-                                            className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
+                                            className="w-full px-4 py-3.5 rounded-lg bg-black/60 border border-white/10 focus:border-[var(--accent-glow)] focus:outline-none transition-colors text-white text-base placeholder:text-gray-600"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm md:text-base font-medium text-gray-300">{contact.form.email}</label>
+                                    <label htmlFor="email" className="text-sm font-semibold text-gray-200">{contact.form.email}</label>
                                     <input
                                         id="email"
                                         name="email"
@@ -150,23 +146,22 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                         type="email"
                                         onFocus={handleFocus}
                                         placeholder={contact.form.emailPlaceholder}
-                                        className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white text-base"
+                                        className="w-full px-4 py-3.5 rounded-lg bg-black/60 border border-white/10 focus:border-[var(--accent-glow)] focus:outline-none transition-colors text-white text-base placeholder:text-gray-600"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm md:text-base font-medium text-gray-300">{contact.form.message}</label>
+                                    <label htmlFor="message" className="text-sm font-semibold text-gray-200">{contact.form.message}</label>
                                     <textarea
                                         id="message"
                                         name="message"
                                         rows={4}
                                         onFocus={handleFocus}
                                         placeholder={contact.form.messagePlaceholder}
-                                        className="w-full px-4 py-3 md:py-4 rounded-lg bg-[var(--bg-primary)] border border-gray-800 focus:border-[var(--accent-primary)] focus:outline-none transition-colors text-white resize-none text-base"
+                                        className="w-full px-4 py-3.5 rounded-lg bg-black/60 border border-white/10 focus:border-[var(--accent-glow)] focus:outline-none transition-colors text-white resize-none text-base placeholder:text-gray-600"
                                     />
                                 </div>
 
-                                {/* Google reCAPTCHA */}
                                 <div className="flex justify-center py-2 min-h-[78px]">
                                     {isFormFocused && (
                                         <ReCAPTCHA
@@ -178,7 +173,6 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                     )}
                                 </div>
 
-                                {/* Powered by Google Badge */}
                                 <div className="flex items-center justify-center gap-2 text-gray-300 text-sm">
                                     <svg viewBox="0 0 24 24" className="w-4 h-4" aria-label="Google">
                                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -192,7 +186,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                                 <button
                                     type="submit"
                                     disabled={!captchaValue || formState === 'submitting'}
-                                    className={`w-full btn text-base md:text-lg py-4 ${captchaValue ? 'btn-primary' : 'bg-gray-800 text-gray-500 cursor-not-allowed'}`}
+                                    className={`w-full btn text-base md:text-lg py-4 ${captchaValue ? 'btn-primary' : 'bg-[#1d2736] text-gray-400 border border-white/10 cursor-not-allowed'}`}
                                 >
                                     {formState === 'submitting' ? contact.form.sending : contact.form.submit}
                                     {formState === 'idle' && <Send size={20} className="ml-2" />}

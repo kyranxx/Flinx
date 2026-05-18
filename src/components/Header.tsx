@@ -33,25 +33,22 @@ export default function Header({ lang, translations }: HeaderProps) {
 
     return (
         <header
-            className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-white/5"
+            className="fixed top-0 left-0 w-full z-50 bg-[rgba(5,5,5,0.86)] backdrop-blur-md border-b border-white/[0.08]"
         >
-            <div className="container mx-auto px-4 py-4 md:py-5">
+            <div className="container mx-auto max-w-6xl px-4 py-4">
                 <div className="flex items-center justify-between">
-                    {/* Logo - Bigger */}
-                    <Link href={lang === 'en' ? '/' : `/${lang}`} className="text-4xl md:text-5xl font-extrabold tracking-tighter font-logo uppercase italic">
+                    <Link href={lang === 'en' ? '/' : `/${lang}`} className="text-3xl md:text-4xl font-extrabold tracking-tighter font-logo uppercase italic">
                         <span className="text-white">Flinx</span>
                         <span className="text-[var(--accent-primary)]">.</span>
                     </Link>
 
-                    {/* Right Side: Desktop Nav + Language Switcher + Mobile Menu */}
-                    <div className="flex items-center gap-6">
-                        {/* Desktop Navigation - Moved to Right */}
-                        <nav className="hidden md:flex items-center gap-8">
+                    <div className="flex items-center gap-4 md:gap-6">
+                        <nav className="hidden md:flex items-center gap-7">
                             {navItems.map((item) => (
                                 <button
                                     key={item.href}
                                     onClick={() => scrollToSection(item.href)}
-                                    className="text-base font-medium text-gray-300 hover:text-white transition-colors"
+                                    className="text-sm font-semibold text-gray-300 hover:text-white transition-colors"
                                 >
                                     {item.label}
                                 </button>
@@ -60,10 +57,9 @@ export default function Header({ lang, translations }: HeaderProps) {
 
                         <LanguageSwitcher currentLang={lang} />
 
-                        {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden p-2 text-white"
+                            className="md:hidden p-2 text-white rounded-lg border border-white/10 bg-white/[0.04]"
                             aria-label="Toggle menu"
                         >
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
