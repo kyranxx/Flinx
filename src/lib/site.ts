@@ -1,8 +1,6 @@
 import { defaultLanguage, type Language, languages } from './languages';
 
-const fallbackSiteUrl = 'https://www.flinx.site';
-
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl).replace(/\/+$/, '');
+export const SITE_URL = 'https://www.flinx.site';
 
 export function getLanguageUrl(language: Language): string {
     if (language === defaultLanguage) {
