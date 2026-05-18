@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Майстерність Core Web Vitals',
-                description: 'Ми оптимізуємо LCP, FID та CLS для успішного проходження Googleової оцінки Core Web Vitals з відмінними результатами.',
+                description: 'Ми оптимізуємо LCP, INP та CLS для успішного проходження Googleової оцінки Core Web Vitals з відмінними результатами.',
             },
             {
                 title: 'Вилучення критичного CSS',

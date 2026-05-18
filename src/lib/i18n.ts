@@ -1,12 +1,13 @@
 import { Language } from './languages';
+import type { Locale } from '@/types/locale';
 
-export async function getTranslation(lang: Language) {
+export async function getTranslation(lang: Language): Promise<Locale> {
     try {
-        const module = await import(`@/locales/${lang}`);
-        return module.default;
-    } catch (error) {
+        const localeModule = await import(`@/locales/${lang}`) as { default: Locale };
+        return localeModule.default;
+    } catch {
         console.warn(`Translation for language '${lang}' not found, falling back to English.`);
-        const module = await import('@/locales/en');
-        return module.default;
+        const localeModule = await import('@/locales/en') as { default: Locale };
+        return localeModule.default;
     }
 }

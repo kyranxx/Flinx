@@ -1,9 +1,10 @@
 "use client";
 
 import { Star } from "lucide-react";
+import type { Locale } from "@/types/locale";
 
 interface TestimonialsProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function Testimonials({ translations }: TestimonialsProps) {
@@ -18,7 +19,7 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {testimonials.items.map((item: any, index: number) => (
+                    {testimonials.items.map((item, index) => (
                         <div
                             key={index}
                             className="card bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-secondary)]"
@@ -28,7 +29,7 @@ export default function Testimonials({ translations }: TestimonialsProps) {
                                     <Star key={i} size={16} fill="var(--success)" color="var(--success)" />
                                 ))}
                             </div>
-                            <p className="text-sm md:text-base text-gray-300 mb-4 italic">"{item.text}"</p>
+                            <p className="text-sm md:text-base text-gray-300 mb-4 italic">&quot;{item.text}&quot;</p>
                             <div className="border-t border-white/10 pt-4">
                                 <p className="font-bold text-sm md:text-base">{item.name}</p>
                                 <p className="text-xs md:text-sm text-gray-300">{item.role}</p>

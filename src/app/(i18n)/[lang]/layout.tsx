@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "../../globals.css";
 import { getTranslation } from "@/lib/i18n";
-import { type Language, languages } from "@/lib/languages";
+import { isLanguage } from "@/lib/languages";
 import { getFontConfig, isRTL } from "@/lib/fonts";
 import Script from "next/script";
+import { notFound } from "next/navigation";
+import { getLanguageAlternates, getLanguageUrl, SITE_URL } from "@/lib/site";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -18,16 +20,13 @@ export const viewport = {
 
 export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
     const { lang } = await params;
-    const translations = await getTranslation(lang as Language);
-    const baseUrl = 'https://www.flinx.site';
+    if (!isLanguage(lang)) {
+        notFound();
+    }
 
-    // Generate language alternates for hreflang tags
-    const languageAlternates: Record<string, string> = {};
-    languages.forEach((locale) => {
-        languageAlternates[locale.code] = `${baseUrl}/${locale.code}`;
-    });
-    // Add x-default fallback to root (English)
-    languageAlternates['x-default'] = baseUrl;
+    const translations = await getTranslation(lang);
+    const languageAlternates = getLanguageAlternates();
+    const languageUrl = getLanguageUrl(lang);
 
     return {
         title: translations.meta.title,
@@ -40,7 +39,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             icon: "/favicon.ico",
         },
         alternates: {
-            canonical: `${baseUrl}/${lang}`,
+            canonical: languageUrl,
             languages: languageAlternates,
         },
         robots: {
@@ -57,13 +56,13 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         openGraph: {
             type: "website",
             locale: lang === 'en' ? 'en_US' : `${lang}_${lang.toUpperCase()}`,
-            url: `${baseUrl}/${lang}`,
+            url: languageUrl,
             title: translations.meta.title,
             description: translations.meta.description,
             siteName: "Flinx",
             images: [
                 {
-                    url: `${baseUrl}/og-image.png`,
+                    url: `${SITE_URL}/og-image.png`,
                     width: 1200,
                     height: 630,
                     alt: translations.meta.title,
@@ -74,13 +73,17 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             card: "summary_large_image",
             title: translations.meta.title,
             description: translations.meta.description,
-            images: [`${baseUrl}/og-image.png`],
+            images: [`${SITE_URL}/og-image.png`],
         },
     };
 }
 
 export default async function RootLayout({ children, params }: LayoutProps) {
     const { lang } = await params;
+    if (!isLanguage(lang)) {
+        notFound();
+    }
+
     const fontConfig = getFontConfig(lang);
     const rtl = isRTL(lang);
 
@@ -95,8 +98,8 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                             "@context": "https://schema.org",
                             "@type": "Corporation",
                             "name": "Flinx",
-                            "url": "https://www.flinx.site",
-                            "logo": "https://www.flinx.site/flinx-logo.png"
+                            "url": SITE_URL,
+                            "logo": `${SITE_URL}/flinx-logo.png`
                         })
                     }}
                 />

@@ -1,5 +1,7 @@
 
 
+import type { Locale } from "@/types/locale";
+
 interface ScoreRingProps {
     score: number;
     label: string;
@@ -63,7 +65,7 @@ function ScoreRing({ score, label, size = 120 }: ScoreRingProps) {
 }
 
 interface ScoreComparisonProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function ScoreComparison({ translations }: ScoreComparisonProps) {
@@ -82,7 +84,7 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
                 {/* Before Scores */}
                 <div className="flex items-center gap-4">
                     <span className="text-red-400 font-bold text-sm uppercase mr-2">{scoreComparison.before.label}</span>
-                    {categories.map((cat, index) => (
+                    {categories.map((cat) => (
                         <ScoreRing
                             key={`before-${cat.label}`}
                             score={cat.before}
@@ -102,7 +104,7 @@ export default function ScoreComparison({ translations }: ScoreComparisonProps) 
                 {/* After Scores */}
                 <div className="flex items-center gap-4">
                     <span className="text-green-400 font-bold text-sm uppercase mr-2">{scoreComparison.after.label}</span>
-                    {categories.map((cat, index) => (
+                    {categories.map((cat) => (
                         <ScoreRing
                             key={`after-${cat.label}`}
                             score={cat.after}

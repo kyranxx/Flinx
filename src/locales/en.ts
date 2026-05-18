@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals Mastery',
-                description: 'We optimize LCP, FID, and CLS to pass Google\'s Core Web Vitals assessment with flying colors.',
+                description: 'We optimize LCP, INP, and CLS to pass Google\'s Core Web Vitals assessment with flying colors.',
             },
             {
                 title: 'Critical CSS Extraction',

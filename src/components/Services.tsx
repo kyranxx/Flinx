@@ -1,9 +1,10 @@
 "use client";
 
 import { Gauge, Image as ImageIcon, FileCode, Smartphone, Zap, Server, Layers, Shield } from "lucide-react";
+import type { Locale } from "@/types/locale";
 
 interface ServicesProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function Services({ translations }: ServicesProps) {
@@ -31,8 +32,8 @@ export default function Services({ translations }: ServicesProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    {services.items.map((service: any, index: number) => {
-                        const Icon = icons[index];
+                    {services.items.map((service, index) => {
+                        const Icon = icons[index] ?? Gauge;
                         return (
                             <div
                                 key={index}

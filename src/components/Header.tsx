@@ -5,10 +5,11 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import type { Language } from "@/lib/languages";
 import LanguageSwitcher from "./LanguageSwitcher";
+import type { Locale } from "@/types/locale";
 
 interface HeaderProps {
     lang: Language;
-    translations: any;
+    translations: Locale;
 }
 
 export default function Header({ lang, translations }: HeaderProps) {

@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Naprawiamy LCP, FID i CLS, aby Google pokochało Twoją stronę.',
+                description: 'Naprawiamy LCP, INP i CLS, aby Google pokochało Twoją stronę.',
             },
             {
                 title: 'Obrazy Next-Gen',

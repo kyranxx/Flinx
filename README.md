@@ -4,27 +4,27 @@ A high-performance, mobile-first landing page for a PageSpeed optimization servi
 
 ## 🚀 Features
 
-- **Multi-language Support**: English, German, French, Russian, Mandarin (expandable to 20+ languages)
+- **Multi-language Support**: English at `/` plus 30 localized routes
 - **Mobile-First Design**: Optimized for all devices with responsive layouts
 - **Perfect PageSpeed Scores**: Built to achieve 100/100 on all PageSpeed Insights metrics
 - **Interactive Components**:
   - Authentic PageSpeed Insights score visualizations
   - Smooth scroll navigation
-  - Animated transitions with Framer Motion
   - Mobile hamburger menu
   - Accordion FAQ section
-  - Form validation with "human verification"
+  - reCAPTCHA-protected contact form
   
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── [lang]/          # Dynamic language routes
-│   │   ├── layout.tsx   # Language-specific layout
-│   │   └── page.tsx     # Main page with all sections
+│   ├── (home)/          # Canonical English homepage at /
+│   ├── (i18n)/[lang]/   # Localized routes, excluding /en
+│   ├── api/contact/     # Contact form API
 │   ├── globals.css      # Global styles
-│   └── page.tsx         # Root redirect to /en
+│   ├── robots.ts        # robots.txt
+│   └── sitemap.ts       # sitemap.xml
 ├── components/
 │   ├── Header.tsx       # Top navigation with anchors
 │   ├── Hero.tsx         # Hero section with CTA
@@ -41,15 +41,7 @@ src/
 
 ## 🌍 Supported Languages
 
-Base implementation includes:
-- 🇺🇸 English (default)
-- 🇩🇪 German
-- 🇫🇷 French
-- 🇷🇺 Russian
-- 🇨🇳 Mandarin Chinese
-
-Ready to expand to 20+ languages including:
-Spanish, Italian, Portuguese, Dutch, Polish, Czech, Romanian, Greek, Turkish, Arabic, Hindi, Japanese, Korean, and more.
+Current implementation includes English plus German, French, Italian, Spanish, Romanian, Dutch, Polish, Portuguese, Greek, Czech, Swedish, Danish, Finnish, Norwegian, Hungarian, Bulgarian, Croatian, Slovak, Slovenian, Russian, Ukrainian, Chinese, Japanese, Hindi, Arabic, Bengali, Turkish, Vietnamese, Korean, and Indonesian.
 
 ## 🎯 PageSpeed Optimization Techniques
 
@@ -117,13 +109,12 @@ The site uses a smart routing structure:
 
 ## 📝 Adding New Languages
 
-1. Open `src/lib/i18n.ts`
-2. Add language to `languages` array:
+1. Add the language to `src/lib/languages.ts`:
 ```typescript
-{ code: 'es', name: 'Español', flag: '🇪🇸' }
+{ code: 'es', name: 'Español', flag: 'es' }
 ```
-3. Add translations to `translations` object
-4. Add to `generateStaticParams` in `src/app/[lang]/page.tsx`
+2. Add `src/locales/{code}.ts` using the same shape as `src/types/locale.ts`.
+3. The localized routes and sitemap are generated from `src/lib/languages.ts`.
 
 ## 🎨 Design System
 
@@ -145,19 +136,18 @@ All components use Tailwind CSS utility classes with custom CSS properties for m
 
 The contact form includes:
 - Client-side validation
-- "Human verification" checkbox
+- Google reCAPTCHA
+- Server-side reCAPTCHA verification
+- SMTP email delivery
 - Animated success state
 - Mobile-optimized inputs
 
-**Note**: Form submission is currently simulated. You'll need to integrate with your backend API or email service.
+Required environment variables live in `.env.local`: `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `ADMIN_EMAIL`.
 
 ## 🔧 To-Do
 
-- [ ] Connect contact form to backend API
-- [ ] Add language switcher in header
 - [ ] Implement actual PageSpeed testing integration
 - [ ] Add pricing calculator
-- [ ] Set up analytics
 - [ ] Add blog section
 - [ ] Create admin panel for translations
 

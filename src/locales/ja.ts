@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitalsの習得',
-                description: 'LCP、FID、CLSを最適化し、GoogleのCore Web Vitals評価を優れた成績で通過します。',
+                description: 'LCP、INP、CLSを最適化し、GoogleのCore Web Vitals評価を優れた成績で通過します。',
             },
             {
                 title: 'クリティカルCSSの抽出',

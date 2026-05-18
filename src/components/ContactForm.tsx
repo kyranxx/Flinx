@@ -3,10 +3,10 @@
 import { useState, useRef } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import ReCAPTCHA from "react-google-recaptcha";
-import Image from "next/image";
+import type { Locale } from "@/types/locale";
 
 interface ContactFormProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function ContactForm({ translations }: ContactFormProps) {
@@ -30,13 +30,13 @@ export default function ContactForm({ translations }: ContactFormProps) {
         setFormState('submitting');
         const form = e.currentTarget;
 
-        // Get form data
         const formData = new FormData(form);
+        const getValue = (name: string) => String(formData.get(name) ?? '');
         const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            website: formData.get('website'),
-            message: formData.get('message'),
+            name: getValue('name'),
+            email: getValue('email'),
+            website: getValue('website'),
+            message: getValue('message'),
             captchaToken: captchaValue,
         };
 

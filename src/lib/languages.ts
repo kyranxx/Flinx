@@ -35,3 +35,7 @@ export const languages = [
 export type Language = typeof languages[number]['code'];
 
 export const defaultLanguage: Language = 'en';
+
+export function isLanguage(value: string): value is Language {
+    return languages.some((language) => language.code === value);
+}

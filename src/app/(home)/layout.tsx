@@ -2,15 +2,9 @@ import type { Metadata } from "next";
 import { outfit, exo2 } from "@/lib/fonts";
 import Script from "next/script";
 import "../globals.css";
-import { languages } from "@/lib/languages";
+import { getLanguageAlternates, SITE_URL } from "@/lib/site";
 
-// Generate language alternates for hreflang tags
-const baseUrl = 'https://www.flinx.site';
-const languageAlternates: Record<string, string> = {};
-languages.forEach((locale) => {
-    languageAlternates[locale.code] = `${baseUrl}/${locale.code}`;
-});
-languageAlternates['x-default'] = baseUrl;
+const languageAlternates = getLanguageAlternates();
 
 export const metadata: Metadata = {
     title: "Flinx - 100% PageSpeed Optimization",
@@ -29,7 +23,7 @@ export const metadata: Metadata = {
     creator: "Flinx",
     publisher: "Flinx",
     alternates: {
-        canonical: baseUrl,
+        canonical: SITE_URL,
         languages: languageAlternates,
     },
     robots: {
@@ -46,13 +40,13 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: baseUrl,
+        url: SITE_URL,
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
         siteName: "Flinx",
         images: [
             {
-                url: `${baseUrl}/og-image.png`,
+                url: `${SITE_URL}/og-image.png`,
                 width: 1200,
                 height: 630,
                 alt: "Flinx - 100% PageSpeed Optimization",
@@ -63,7 +57,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Flinx - 100% PageSpeed Optimization",
         description: "Make your website blazing fast with Flinx. We optimize for 100% PageSpeed Insights scores.",
-        images: [`${baseUrl}/og-image.png`],
+        images: [`${SITE_URL}/og-image.png`],
     },
 };
 
@@ -89,8 +83,8 @@ export default function RootLayout({
                             "@context": "https://schema.org",
                             "@type": "Corporation",
                             "name": "Flinx",
-                            "url": "https://www.flinx.site",
-                            "logo": "https://www.flinx.site/flinx-logo.png"
+                            "url": SITE_URL,
+                            "logo": `${SITE_URL}/flinx-logo.png`
                         })
                     }}
                 />

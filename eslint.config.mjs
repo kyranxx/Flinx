@@ -11,8 +11,15 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    ".gemini/**",
     "next-env.d.ts",
   ]),
+  {
+    files: ["src/locales/**/*.ts"],
+    rules: {
+      "import/no-anonymous-default-export": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

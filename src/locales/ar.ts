@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'إتقان Core Web Vitals',
-                description: 'نقوم بتحسين LCP و FID و CLS لاجتياز تقييم Google Core Web Vitals بنتائج ممتازة.',
+                description: 'نقوم بتحسين LCP و INP و CLS لاجتياز تقييم Google Core Web Vitals بنتائج ممتازة.',
             },
             {
                 title: 'استخراج CSS الحرج',

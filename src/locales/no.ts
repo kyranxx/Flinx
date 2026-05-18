@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Vi fikser LCP, FID og CLS så Google elsker nettstedet ditt.',
+                description: 'Vi fikser LCP, INP og CLS så Google elsker nettstedet ditt.',
             },
             {
                 title: 'Next-Gen Bilder',

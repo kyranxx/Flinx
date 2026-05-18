@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Opravujeme LCP, FID a CLS, aby Google miloval váš web.',
+                description: 'Opravujeme LCP, INP a CLS, aby Google miloval váš web.',
             },
             {
                 title: 'Next-Gen Obrázky',

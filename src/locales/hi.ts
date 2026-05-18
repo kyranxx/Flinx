@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals में महारत',
-                description: 'हम उत्कृष्ट परिणामों के साथ Google के Core Web Vitals मूल्यांकन को पास करने के लिए LCP, FID और CLS को अनुकूलित करते हैं।',
+                description: 'हम उत्कृष्ट परिणामों के साथ Google के Core Web Vitals मूल्यांकन को पास करने के लिए LCP, INP और CLS को अनुकूलित करते हैं।',
             },
             {
                 title: 'क्रिटिकल CSS निष्कर्षण',

@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals 숙달',
-                description: 'LCP, FID, CLS를 최적화하여 Google의 Core Web Vitals 평가를 우수한 성적으로 통과합니다.',
+                description: 'LCP, INP, CLS를 최적화하여 Google의 Core Web Vitals 평가를 우수한 성적으로 통과합니다.',
             },
             {
                 title: '중요 CSS 추출',

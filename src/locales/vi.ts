@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Làm chủ Core Web Vitals',
-                description: 'Chúng tôi tối ưu hóa LCP, FID và CLS để vượt qua đánh giá Core Web Vitals của Google với kết quả xuất sắc.',
+                description: 'Chúng tôi tối ưu hóa LCP, INP và CLS để vượt qua đánh giá Core Web Vitals của Google với kết quả xuất sắc.',
             },
             {
                 title: 'Trích xuất CSS quan trọng',

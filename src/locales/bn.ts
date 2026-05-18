@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals দক্ষতা',
-                description: 'আমরা দুর্দান্ত ফলাফলের সাথে Google এর Core Web Vitals মূল্যায়ন পাস করতে LCP, FID এবং CLS অপটিমাইজ করি।',
+                description: 'আমরা দুর্দান্ত ফলাফলের সাথে Google এর Core Web Vitals মূল্যায়ন পাস করতে LCP, INP এবং CLS অপটিমাইজ করি।',
             },
             {
                 title: 'সমালোচনামূলক CSS নিষ্কাশন',

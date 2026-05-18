@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'We lossen LCP, FID en CLS op zodat Google van je site houdt.',
+                description: 'We lossen LCP, INP en CLS op zodat Google van je site houdt.',
             },
             {
                 title: 'Next-Gen Afbeeldingen',

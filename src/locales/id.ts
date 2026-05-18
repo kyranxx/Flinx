@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Penguasaan Core Web Vitals',
-                description: 'Kami mengoptimalkan LCP, FID, dan CLS untuk lulus penilaian Core Web Vitals Google dengan nilai sempurna.',
+                description: 'Kami mengoptimalkan LCP, INP, dan CLS untuk lulus penilaian Core Web Vitals Google dengan nilai sempurna.',
             },
             {
                 title: 'Ekstraksi CSS Kritis',

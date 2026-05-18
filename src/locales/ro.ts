@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Rezolvăm problemele LCP, FID și CLS pentru ca Google să îți iubească site-ul.',
+                description: 'Rezolvăm problemele LCP, INP și CLS pentru ca Google să îți iubească site-ul.',
             },
             {
                 title: 'Imagini Next-Gen',

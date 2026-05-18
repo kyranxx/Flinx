@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import type { Language } from "@/lib/languages";
+import type { Locale } from "@/types/locale";
 
 interface FooterProps {
     lang: Language;
-    translations: any;
+    translations: Locale;
 }
 
 export default function Footer({ lang, translations }: FooterProps) {

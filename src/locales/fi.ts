@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Korjaamme LCP, FID ja CLS, jotta Google rakastaa sivustoasi.',
+                description: 'Korjaamme LCP, INP ja CLS, jotta Google rakastaa sivustoasi.',
             },
             {
                 title: 'Next-Gen Kuvat',

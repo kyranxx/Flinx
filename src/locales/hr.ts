@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Majstorstvo Core Web Vitals',
-                description: 'Optimiziramo LCP, FID i CLS kako bismo prošli Googleovu procjenu Core Web Vitals s odličnim ocjenama.',
+                description: 'Optimiziramo LCP, INP i CLS kako bismo prošli Googleovu procjenu Core Web Vitals s odličnim ocjenama.',
             },
             {
                 title: 'Ekstrakcija kritičnog CSS-a',

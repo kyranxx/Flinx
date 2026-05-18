@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals Ustalığı',
-                description: 'Google\'ın Core Web Vitals değerlendirmesini mükemmel sonuçlarla geçmek için LCP, FID ve CLS\'yi optimize ediyoruz.',
+                description: 'Google\'ın Core Web Vitals değerlendirmesini mükemmel sonuçlarla geçmek için LCP, INP ve CLS\'yi optimize ediyoruz.',
             },
             {
                 title: 'Kritik CSS Çıkarma',

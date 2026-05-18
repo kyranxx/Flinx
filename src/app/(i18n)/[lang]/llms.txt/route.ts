@@ -1,4 +1,4 @@
-import { type Language, languages } from '@/lib/languages';
+import { defaultLanguage, isLanguage, languages } from '@/lib/languages';
 import { getLlmsContent } from '@/lib/llms';
 
 const HEADERS = {
@@ -6,11 +6,14 @@ const HEADERS = {
     'Cache-Control': 'public, max-age=3600, s-maxage=86400',
 };
 
-function isLanguage(value: string): value is Language {
-    return languages.some((language) => language.code === value);
-}
-
 export const dynamic = 'force-static';
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return languages
+        .filter((language) => language.code !== defaultLanguage)
+        .map((language) => ({ lang: language.code }));
+}
 
 export async function GET(
     _request: Request,
@@ -18,7 +21,7 @@ export async function GET(
 ) {
     const { lang } = await params;
 
-    if (!isLanguage(lang)) {
+    if (!isLanguage(lang) || lang === defaultLanguage) {
         return new Response('Not found', { status: 404 });
     }
 

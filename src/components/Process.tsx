@@ -1,9 +1,10 @@
 "use client";
 
 import { FileText, Calculator, CheckCircle, Trophy } from "lucide-react";
+import type { Locale } from "@/types/locale";
 
 interface ProcessProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function Process({ translations }: ProcessProps) {
@@ -27,7 +28,7 @@ export default function Process({ translations }: ProcessProps) {
         }
     ];
 
-    const steps = translations.process.steps.map((step: any, index: number) => ({
+    const steps = translations.process.steps.map((step, index) => ({
         ...step,
         ...stepsData[index]
     }));
@@ -43,7 +44,7 @@ export default function Process({ translations }: ProcessProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4 overflow-visible">
-                    {steps.map((step: any, index: number) => {
+                    {steps.map((step, index) => {
                         const Icon = step.icon;
                         return (
                             <div

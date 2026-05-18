@@ -1,9 +1,10 @@
 import { Zap } from "lucide-react";
 import ScoreComparison from "./ScoreComparison";
 import HeroCta from "./HeroCta";
+import type { Locale } from "@/types/locale";
 
 interface HeroProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function Hero({ translations }: HeroProps) {

@@ -1,22 +1,83 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-// Email configuration - You need to set these environment variables
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT;
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'your-email@example.com'; // Your email to receive notifications
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 interface ContactFormData {
     name: string;
     email: string;
     website: string;
-    message?: string;
+    message: string;
     captchaToken: string;
 }
 
-// Verify reCAPTCHA
+interface RecaptchaResponse {
+    success?: boolean;
+}
+
+function escapeHtml(value: string): string {
+    return value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+function normalizeSubject(value: string): string {
+    return value.replace(/[\r\n]+/g, ' ').trim();
+}
+
+function parsePayload(body: unknown): ContactFormData | null {
+    if (!body || typeof body !== 'object') {
+        return null;
+    }
+
+    const record = body as Record<string, unknown>;
+    const getString = (key: string) => {
+        const value = record[key];
+        return typeof value === 'string' ? value.trim() : '';
+    };
+
+    const name = getString('name');
+    const email = getString('email');
+    const websiteInput = getString('website');
+    const message = getString('message');
+    const captchaToken = getString('captchaToken');
+
+    if (!name || !email || !websiteInput || !captchaToken) {
+        return null;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+        return null;
+    }
+
+    let website: string;
+    try {
+        const url = new URL(websiteInput);
+        if (!['http:', 'https:'].includes(url.protocol)) {
+            return null;
+        }
+        website = url.href;
+    } catch {
+        return null;
+    }
+
+    return {
+        name: name.slice(0, 120),
+        email,
+        website,
+        message: message.slice(0, 5000),
+        captchaToken,
+    };
+}
+
 async function verifyRecaptcha(token: string): Promise<boolean> {
     if (!RECAPTCHA_SECRET_KEY) {
         console.error('RECAPTCHA_SECRET_KEY is not configured');
@@ -29,28 +90,32 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `secret=${RECAPTCHA_SECRET_KEY}&response=${token}`,
+            body: new URLSearchParams({
+                secret: RECAPTCHA_SECRET_KEY,
+                response: token,
+            }),
         });
 
-        const data = await response.json();
-        return data.success;
+        const data = await response.json() as RecaptchaResponse;
+        return data.success === true;
     } catch (error) {
         console.error('ReCAPTCHA verification error:', error);
         return false;
     }
 }
 
-// Send email using nodemailer
-async function sendEmail(to: string, subject: string, htmlContent: string) {
-    // For now, we'll use a simple approach
-    // You'll need to install nodemailer: npm install nodemailer
-    // Or use a service like Resend, SendGrid, or AWS SES
+function hasEmailConfig(): boolean {
+    return Boolean(SMTP_HOST && SMTP_USER && SMTP_PASS && ADMIN_EMAIL);
+}
 
-    const nodemailer = require('nodemailer');
+async function sendEmail(to: string, subject: string, htmlContent: string) {
+    if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+        throw new Error('SMTP configuration is incomplete');
+    }
 
     const transporter = nodemailer.createTransport({
         host: SMTP_HOST,
-        port: parseInt(SMTP_PORT || '587'),
+        port: Number.parseInt(SMTP_PORT || '587', 10),
         secure: SMTP_PORT === '465',
         auth: {
             user: SMTP_USER,
@@ -66,43 +131,13 @@ async function sendEmail(to: string, subject: string, htmlContent: string) {
     });
 }
 
-export async function POST(request: NextRequest) {
-    try {
-        const body: ContactFormData = await request.json();
-        const { name, email, website, message, captchaToken } = body;
+function buildEmailHtml(data: ContactFormData) {
+    const safeName = escapeHtml(data.name);
+    const safeEmail = escapeHtml(data.email);
+    const safeWebsite = escapeHtml(data.website);
+    const safeMessage = escapeHtml(data.message).replaceAll('\n', '<br />');
 
-        // Validate required fields
-        if (!name || !email || !website || !captchaToken) {
-            return NextResponse.json(
-                { error: 'Missing required fields' },
-                { status: 400 }
-            );
-        }
-
-        // Verify reCAPTCHA
-        const isValidCaptcha = await verifyRecaptcha(captchaToken);
-        if (!isValidCaptcha) {
-            return NextResponse.json(
-                { error: 'Invalid reCAPTCHA. Please try again.' },
-                { status: 400 }
-            );
-        }
-
-        // Check if email sending is configured
-        if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-            console.error('Email configuration is incomplete');
-            // For now, log the submission
-            console.log('Contact form submission:', { name, email, website, message });
-
-            // Return success anyway (you can change this behavior)
-            return NextResponse.json({
-                success: true,
-                message: 'Form received. Email configuration pending.',
-            });
-        }
-
-        // Email to admin (you)
-        const adminEmailContent = `
+    const adminEmailContent = `
       <!DOCTYPE html>
       <html>
         <head>
@@ -118,26 +153,26 @@ export async function POST(request: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
-              <h2>🚀 New Flinx Quote Request!</h2>
+              <h2>New Flinx Quote Request</h2>
             </div>
             <div class="content">
               <div class="info-row">
-                <span class="label">Name:</span> ${name}
+                <span class="label">Name:</span> ${safeName}
               </div>
               <div class="info-row">
-                <span class="label">Email:</span> ${email}
+                <span class="label">Email:</span> ${safeEmail}
               </div>
               <div class="info-row">
-                <span class="label">Website:</span> <a href="${website}">${website}</a>
+                <span class="label">Website:</span> <a href="${safeWebsite}">${safeWebsite}</a>
               </div>
-              ${message ? `
+              ${safeMessage ? `
               <div class="info-row">
                 <span class="label">Message:</span><br>
-                ${message}
+                ${safeMessage}
               </div>
               ` : ''}
               <p style="margin-top: 20px; color: #6b7280;">
-                Received at: ${new Date().toLocaleString()}
+                Received at: ${new Date().toISOString()}
               </p>
             </div>
           </div>
@@ -145,8 +180,7 @@ export async function POST(request: NextRequest) {
       </html>
     `;
 
-        // Email to customer (confirmation)
-        const customerEmailContent = `
+    const customerEmailContent = `
       <!DOCTYPE html>
       <html>
         <head>
@@ -156,29 +190,23 @@ export async function POST(request: NextRequest) {
             .header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 30px; border-radius: 8px 8px 0 0; text-align: center; }
             .content { background: #f9fafb; padding: 30px; border-radius: 0 0 8px 8px; }
             .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; }
-            .button { display: inline-block; background: #6366f1; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; margin: 20px 0; }
           </style>
         </head>
         <body>
           <div class="container">
             <div class="header">
-              <div class="logo">⚡ Flinx</div>
+              <div class="logo">Flinx</div>
               <h2>Thank you for contacting us!</h2>
             </div>
             <div class="content">
-              <p>Hi ${name},</p>
-              <p>We've received your request for a website optimization quote. Our team is analyzing your website and will get back to you within 24 hours with a personalized proposal.</p>
-              
+              <p>Hi ${safeName},</p>
+              <p>We've received your request for a website optimization quote. Our team will review your website and get back to you with a personalized proposal.</p>
               <p><strong>Your submission details:</strong></p>
               <ul>
-                <li><strong>Website:</strong> ${website}</li>
-                <li><strong>Email:</strong> ${email}</li>
+                <li><strong>Website:</strong> ${safeWebsite}</li>
+                <li><strong>Email:</strong> ${safeEmail}</li>
               </ul>
-              
-              <p>In the meantime, feel free to check out our website for more information about how we can help boost your site's performance.</p>
-              
               <p style="margin-top: 30px;">Best regards,<br><strong>The Flinx Team</strong></p>
-              
               <p style="color: #6b7280; font-size: 12px; margin-top: 30px;">
                 If you didn't submit this form, please ignore this email.
               </p>
@@ -188,32 +216,57 @@ export async function POST(request: NextRequest) {
       </html>
     `;
 
-        try {
-            // Send email to admin
-            await sendEmail(
-                ADMIN_EMAIL,
-                `New Quote Request from ${name}`,
-                adminEmailContent
-            );
+    return {
+        adminEmailContent,
+        customerEmailContent,
+    };
+}
 
-            // Send confirmation email to customer
-            await sendEmail(
-                email,
-                'We received your Flinx quote request! 🚀',
-                customerEmailContent
-            );
+export async function POST(request: NextRequest) {
+    try {
+        const payload = parsePayload(await request.json());
 
-            return NextResponse.json({
-                success: true,
-                message: 'Emails sent successfully',
-            });
-        } catch (emailError) {
-            console.error('Error sending emails:', emailError);
+        if (!payload) {
             return NextResponse.json(
-                { error: 'Failed to send emails. Please try again later.' },
-                { status: 500 }
+                { error: 'Please provide a valid name, email, website, and reCAPTCHA.' },
+                { status: 400 }
             );
         }
+
+        const isValidCaptcha = await verifyRecaptcha(payload.captchaToken);
+        if (!isValidCaptcha) {
+            return NextResponse.json(
+                { error: 'Invalid reCAPTCHA. Please try again.' },
+                { status: 400 }
+            );
+        }
+
+        if (!hasEmailConfig() || !ADMIN_EMAIL) {
+            console.error('Email configuration is incomplete');
+            return NextResponse.json(
+                { error: 'Contact form is not configured yet.' },
+                { status: 503 }
+            );
+        }
+
+        const { adminEmailContent, customerEmailContent } = buildEmailHtml(payload);
+
+        await sendEmail(
+            ADMIN_EMAIL,
+            `New Quote Request from ${normalizeSubject(payload.name)}`,
+            adminEmailContent
+        );
+
+        await sendEmail(
+            payload.email,
+            'We received your Flinx quote request',
+            customerEmailContent
+        );
+
+        return NextResponse.json({
+            success: true,
+            message: 'Emails sent successfully',
+        });
     } catch (error) {
         console.error('Contact form error:', error);
         return NextResponse.json(

@@ -1,9 +1,10 @@
 import { getTranslation } from "@/lib/i18n";
-import { type Language, languages } from "@/lib/languages";
+import { defaultLanguage, isLanguage, languages } from "@/lib/languages";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import dynamic from 'next/dynamic';
+import { notFound } from "next/navigation";
 
 const Process = dynamic(() => import("@/components/Process"));
 const Services = dynamic(() => import("@/components/Services"));
@@ -15,13 +16,19 @@ interface PageProps {
     params: Promise<{ lang: string }>;
 }
 
+export const dynamicParams = false;
+
 export default async function Page({ params }: PageProps) {
     const { lang } = await params;
-    const translations = await getTranslation(lang as Language);
+    if (!isLanguage(lang) || lang === defaultLanguage) {
+        notFound();
+    }
+
+    const translations = await getTranslation(lang);
 
     return (
         <main className="min-h-screen flex flex-col">
-            <Header lang={lang as Language} translations={translations} />
+            <Header lang={lang} translations={translations} />
             <Hero translations={translations} />
 
             <Process translations={translations} />
@@ -29,13 +36,13 @@ export default async function Page({ params }: PageProps) {
             <Testimonials translations={translations} />
             <FAQ translations={translations} />
             <ContactForm translations={translations} />
-            <Footer lang={lang as Language} translations={translations} />
+            <Footer lang={lang} translations={translations} />
         </main>
     );
 }
 
 export async function generateStaticParams() {
     return languages
-        .filter((lang) => lang.code !== 'en')
-        .map((lang) => ({ lang: lang.code }));
+        .filter((language) => language.code !== defaultLanguage)
+        .map((language) => ({ lang: language.code }));
 }

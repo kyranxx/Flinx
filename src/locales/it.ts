@@ -63,7 +63,7 @@ export default {
         items: [
             {
                 title: 'Core Web Vitals',
-                description: 'Sistemiamo LCP, FID e CLS così Google amerà il tuo sito.',
+                description: 'Sistemiamo LCP, INP e CLS così Google amerà il tuo sito.',
             },
             {
                 title: 'Immagini Next-Gen',

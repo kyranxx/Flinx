@@ -1,7 +1,9 @@
 "use client";
 
+import type { Locale } from "@/types/locale";
+
 interface FAQProps {
-    translations: any;
+    translations: Locale;
 }
 
 export default function FAQ({ translations }: FAQProps) {
@@ -15,7 +17,7 @@ export default function FAQ({ translations }: FAQProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    {faq.items.map((item: any, index: number) => (
+                    {faq.items.map((item, index) => (
                         <div
                             key={index}
                             className="card"

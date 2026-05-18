@@ -1,4 +1,9 @@
 export interface Locale {
+    meta: {
+        title: string;
+        description: string;
+        keywords: string;
+    };
     nav: {
         features: string;
         testimonials: string;
