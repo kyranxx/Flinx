@@ -89,6 +89,9 @@ npm run dev
 # Build for production
 npm run build
 
+# Lint
+npm run lint
+
 # Start production server
 npm start
 ```

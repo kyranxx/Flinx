@@ -62,6 +62,12 @@ export default function Footer({ lang, translations }: FooterProps) {
                             >
                                 Flinx Homepage
                             </Link>
+                            <Link
+                                href="/site-map"
+                                className="text-sm md:text-base text-gray-300 hover:text-white transition-colors"
+                            >
+                                Sitemap
+                            </Link>
                             <a
                                 href="https://pagespeed.web.dev/"
                                 target="_blank"

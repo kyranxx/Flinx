@@ -88,7 +88,8 @@ export default function RootLayout({
                         })
                     }}
                 />
-                {/* Microsoft Clarity */}
+            </head>
+            <body className={`${outfit.variable} ${exo2.variable} font-sans`}>
                 <Script id="microsoft-clarity" strategy="afterInteractive">
                     {`
                         (function(c,l,a,r,i,t,y){
@@ -98,8 +99,20 @@ export default function RootLayout({
                         })(window, document, "clarity", "script", "ugamw1a4wd");
                     `}
                 </Script>
-            </head>
-            <body className={`${outfit.variable} ${exo2.variable} font-sans`}>
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-C71XQTQNX1"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-C71XQTQNX1', {
+                            page_path: window.location.pathname,
+                        });
+                    `}
+                </Script>
                 {children}
             </body>
         </html>

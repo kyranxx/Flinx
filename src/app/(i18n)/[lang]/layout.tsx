@@ -103,7 +103,8 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                         })
                     }}
                 />
-                {/* Microsoft Clarity */}
+            </head>
+            <body className={`${fontConfig.className} font-sans`}>
                 <Script id="microsoft-clarity" strategy="afterInteractive">
                     {`
                         (function(c,l,a,r,i,t,y){
@@ -113,7 +114,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                         })(window, document, "clarity", "script", "ugamw1a4wd");
                     `}
                 </Script>
-                {/* Google Analytics 4 */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-C71XQTQNX1"
                     strategy="afterInteractive"
@@ -128,8 +128,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                         });
                     `}
                 </Script>
-            </head>
-            <body className={`${fontConfig.className} font-sans`}>
                 {children}
             </body>
         </html>
